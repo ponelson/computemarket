@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f5f7" id="themeColorMeta">
+<title>The Compute Market v2.0 — AI silicon, racks, memory and storage, priced</title>
+<meta property="og:title" content="The Compute Market v2.0">
+<meta property="og:description" content="What is actually for sale in AI infrastructure in September 2026: accelerators, racks, prices, kilowatts, memory and storage.">
+<meta name="description" content="What is actually for sale in AI infrastructure in September 2026: accelerators, racks, prices, kilowatts, memory and storage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS — the ONLY place literal colors may appear.
+   Everything below this block uses var(--…). No exceptions.
+   ============================================================ */
+:root{
+  color-scheme:light;
+  --bg:#f5f5f7;
+  --bg-grad-1:rgba(234,243,255,.85);
+  --bg-grad-2:rgba(255,240,223,.75);
+  --bg-grad-3:#fbfbfd;
+  --bg-grad-4:#eff2f6;
+  --surface:#ffffff;  --surface-2:#f0f0f3;  --surface-3:#f1f3f5;
+  --glass:rgba(255,255,255,.72);
+  --glass-2:rgba(255,255,255,.60);
+  --glass-border:rgba(255,255,255,.72);
+  --nav-bg:rgba(245,245,247,.90);
+  --ink:#111114;  --ink-2:#3a3f4c;  --ink-3:#4a505c;  --ink-dim:#6b6f7b;  --ink-strong:#000000;
+  --line:rgba(0,0,0,.09);  --line-2:rgba(0,0,0,.16);  --line-solid:#e3e3e8;  --line-strong:#d2d2d7;
+  --blue:#0071e3;      --blue-ink:#0057b8;    --blue-soft:#e9f3ff;
+  --green:#1f8f4e;     --green-ink:#0f6a36;   --green-soft:#e9f7ee;
+  --orange:#b65f00;    --orange-ink:#8a4800;  --orange-soft:#fff1df;
+  --purple:#6b47d6;    --purple-ink:#4d32a3;  --purple-soft:#f0edff;
+  --red:#bd2b28;       --red-ink:#a52320;     --red-soft:#fdeceb;
+  --on-accent:#ffffff;
+  --invert-bg:#141417;  --invert-ink:#f5f5f7;  --invert-ink-2:#c9ccd3;  --invert-line:#2a2a30;
+  --code-bg:#141417;   --code-ink:#e6e8ee;    --code-line:#2a2a30;
+  --code-c:#7f8798; --code-k:#6fb2ff; --code-g:#63d193; --code-r:#ff7b72; --code-y:#ffc46b;
+  --code-light-bg:#f1f2f4; --code-light-ink:#1c1f26;
+  --note-bg:rgba(0,113,227,.05);   --note-line:rgba(0,113,227,.20);
+  --warn-bg:#fff7e8;               --warn-line:#f2d6a7;  --warn-ink:#5c3b00;
+  --strip-bg:#111114;  --strip-ink:#ffffff;
+  --strip-btn:rgba(255,255,255,.10); --strip-btn-hover:rgba(255,255,255,.20);
+  --strip-line:rgba(255,255,255,.20);
+  --pill-bg:rgba(255,255,255,.68);  --pill-ink:#252934;
+  --pill-on-bg:#111114;             --pill-on-ink:#ffffff;
+  --shadow:0 18px 60px rgba(0,0,0,.10);
+  --shadow-2:0 8px 28px rgba(0,0,0,.08);
+  --shadow-hover:0 16px 50px rgba(0,0,0,.11);
+  --orb-opacity:.72;
+  --gradtext:linear-gradient(102deg,#17191d 0%,#465365 48%,#0874dc 86%,#0068c9 100%);
+  --gradtext-fallback:#34475f;
+  --serif:'Source Serif 4', ui-serif, Georgia, serif;
+  --sans:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', Segoe UI, sans-serif;
+  --mono:'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --radius:28px; --radius-2:18px;
+}
+
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0d0d10;
+  --bg-grad-1:rgba(23,42,71,.55);
+  --bg-grad-2:rgba(58,40,20,.45);
+  --bg-grad-3:#101015;
+  --bg-grad-4:#0a0a0d;
+  --surface:#17171c;  --surface-2:#1d1d23;  --surface-3:#22222a;
+  --glass:rgba(30,30,37,.72);
+  --glass-2:rgba(30,30,37,.60);
+  --glass-border:rgba(255,255,255,.10);
+  --nav-bg:rgba(16,16,20,.90);
+  --ink:#f2f2f5;  --ink-2:#c3c7d1;  --ink-3:#adb2bd;  --ink-dim:#9096a3;  --ink-strong:#ffffff;
+  --line:rgba(255,255,255,.12);  --line-2:rgba(255,255,255,.20);  --line-solid:#2b2b33;  --line-strong:#3a3a44;
+  --blue:#4da3ff;      --blue-ink:#8cc3ff;    --blue-soft:rgba(77,163,255,.16);
+  --green:#4bc47d;     --green-ink:#7fd9a2;   --green-soft:rgba(75,196,125,.16);
+  --orange:#f0a23c;    --orange-ink:#f5bd72;  --orange-soft:rgba(240,162,60,.16);
+  --purple:#a78bfa;    --purple-ink:#c4b1ff;  --purple-soft:rgba(167,139,250,.18);
+  --red:#f0736e;       --red-ink:#f79b97;     --red-soft:rgba(240,115,110,.16);
+  --on-accent:#0d0d10;
+  --invert-bg:#22222b;  --invert-ink:#f5f5f7;  --invert-ink-2:#c9ccd3;  --invert-line:#3d3d49;
+  --code-bg:#101014;   --code-ink:#e6e8ee;    --code-line:#2f2f3a;
+  --code-light-bg:#1b1b21; --code-light-ink:#dfe2e9;
+  --note-bg:rgba(77,163,255,.10);  --note-line:rgba(77,163,255,.30);
+  --warn-bg:rgba(240,162,60,.12);  --warn-line:rgba(240,162,60,.34); --warn-ink:#f3cd95;
+  --strip-bg:#000000;  --strip-ink:#f2f2f5;
+  --strip-btn:rgba(255,255,255,.10); --strip-btn-hover:rgba(255,255,255,.22);
+  --strip-line:rgba(255,255,255,.22);
+  --pill-bg:rgba(255,255,255,.07);  --pill-ink:#dcdfe7;
+  --pill-on-bg:#f2f2f5;             --pill-on-ink:#0d0d10;
+  --shadow:0 18px 60px rgba(0,0,0,.55);
+  --shadow-2:0 8px 28px rgba(0,0,0,.45);
+  --shadow-hover:0 16px 50px rgba(0,0,0,.60);
+  --orb-opacity:.30;
+  --gradtext:linear-gradient(102deg,#ffffff 0%,#cdd8e8 48%,#6fb2ff 86%,#4da3ff 100%);
+  --gradtext-fallback:#cfe0f5;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; color:var(--ink); font-family:var(--sans);
+  font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 15% 0%, var(--bg-grad-1) 0, transparent 38%),
+    radial-gradient(circle at 80% 8%, var(--bg-grad-2) 0, transparent 32%),
+    linear-gradient(180deg, var(--bg-grad-3) 0, var(--bg) 45%, var(--bg-grad-4) 100%);
+  background-attachment:fixed;
+}
+a{color:var(--blue-ink); text-decoration:none;}
+a:hover{text-decoration:underline;}
+p{margin:0 0 1.05em; max-width:78ch;}
+strong{font-weight:700; color:var(--ink-strong);}
+::selection{background:var(--blue-soft); color:var(--ink-strong);}
+
+/* ============================================================
+   TOPBAR — dark contact strip + glass nav
+   ============================================================ */
+.topbar{position:sticky; top:0; z-index:60;}
+.contact-strip{
+  background:var(--strip-bg); color:var(--strip-ink);
+  border-bottom:1px solid var(--strip-line);
+}
+.contact-strip .wrap{display:flex; justify-content:flex-end; align-items:center; gap:8px; padding:7px 26px;}
+.contact-link{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.05em;
+  color:var(--strip-ink); background:var(--strip-btn);
+  border:0; border-radius:999px; padding:5px 11px; cursor:pointer;
+  text-decoration:none; transition:background .18s ease;
+}
+.contact-link:hover{background:var(--strip-btn-hover); text-decoration:none;}
+.contact-link svg{width:13px; height:13px; fill:currentColor;}
+
+.nav{
+  background:var(--nav-bg); backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.nav .wrap{display:flex; align-items:center; gap:16px; padding:10px 26px;}
+.brand{font-family:var(--serif); font-weight:700; font-size:17px; color:var(--ink); white-space:nowrap;}
+.vtag{
+  font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.08em;
+  color:var(--ink-dim); border:1px solid var(--line-2); border-radius:999px; padding:2px 8px;
+}
+#navlinks{display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-left:auto;}
+#navlinks::-webkit-scrollbar{display:none;}
+#navlinks a{
+  font-size:13px; font-weight:500; white-space:nowrap;
+  color:var(--pill-ink); background:var(--pill-bg);
+  border:1px solid var(--line); border-radius:999px; padding:5px 13px;
+  transition:background .18s ease, color .18s ease;
+}
+#navlinks a:hover{text-decoration:none; border-color:var(--line-2);}
+#navlinks a.active{background:var(--pill-on-bg); color:var(--pill-on-ink); border-color:transparent;}
+#menubtn{
+  display:none; margin-left:auto; background:var(--pill-bg); color:var(--ink);
+  border:1px solid var(--line); border-radius:10px; padding:6px 11px;
+  font-size:16px; line-height:1; cursor:pointer;
+}
+#drawer{display:none; flex-direction:column; gap:2px; padding:0 26px 14px;}
+#drawer.open{display:flex;}
+#drawer a{
+  color:var(--ink-2); font-size:15px; padding:9px 2px;
+  border-bottom:1px solid var(--line);
+}
+@media(max-width:960px){
+  #navlinks{display:none;}
+  #menubtn{display:block;}
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.wrap{max-width:1460px; margin:0 auto; padding:0 26px;}
+.section{padding:64px 0; scroll-margin-top:96px;}
+.rule{height:1px; background:var(--line); border:0; margin:34px 0;}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative; overflow:hidden; padding:86px 0 66px;}
+.orb{
+  position:absolute; border-radius:50%; filter:blur(66px);
+  opacity:var(--orb-opacity); pointer-events:none; z-index:0;
+}
+.orb.a{width:460px; height:460px; top:-140px; left:-90px; background:var(--blue-soft);}
+.orb.b{width:380px; height:380px; top:-60px; right:-70px; background:var(--orange-soft);}
+.hero .wrap{position:relative; z-index:1;}
+.eyebrow{
+  font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-dim); margin-bottom:20px;
+}
+.eyebrow b{color:var(--ink-2); font-weight:700;}
+.h1{
+  font-family:var(--serif); font-weight:900; font-size:clamp(38px,5.6vw,72px);
+  line-height:1.04; letter-spacing:-.022em; margin:0 0 22px; max-width:19ch; color:var(--ink);
+}
+.h1 em{
+  font-style:normal; color:var(--gradtext-fallback);
+  background:var(--gradtext); -webkit-background-clip:text; background-clip:text;
+}
+@supports((-webkit-background-clip:text) or (background-clip:text)){
+  .h1 em{-webkit-text-fill-color:transparent;}
+}
+.lede{font-size:clamp(18px,1.5vw,21px); line-height:1.55; color:var(--ink-2); max-width:70ch; margin:0 0 26px;}
+.cta{
+  display:inline-flex; align-items:center; gap:7px; margin:0 10px 10px 0;
+  background:var(--pill-on-bg); color:var(--pill-on-ink);
+  border:1px solid transparent; border-radius:999px; padding:11px 21px;
+  font-size:14px; font-weight:600; cursor:pointer;
+}
+.cta:hover{text-decoration:none; opacity:.88;}
+.cta.ghost{background:transparent; color:var(--ink); border-color:var(--line-2);}
+
+/* ============================================================
+   SECTION TYPE
+   ============================================================ */
+.kicker{
+  font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-dim); margin-bottom:12px;
+}
+h2{
+  font-family:var(--serif); font-weight:800; font-size:clamp(27px,3.1vw,40px);
+  line-height:1.14; letter-spacing:-.015em; margin:0 0 14px; color:var(--ink); max-width:22ch;
+}
+.sub{font-size:18px; color:var(--ink-2); max-width:940px; margin:0 0 30px;}
+h3.sub-h{
+  font-family:var(--serif); font-weight:700; font-size:22px;
+  margin:34px 0 12px; color:var(--ink); letter-spacing:-.01em;
+}
+
+/* ============================================================
+   GRID + CARDS
+   ============================================================ */
+.grid{display:grid; gap:20px; margin:26px 0;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:960px){ .g2,.g3,.g4{grid-template-columns:1fr;} }
+.card{
+  background:var(--glass); border:1px solid var(--glass-border);
+  border-radius:var(--radius-2); padding:22px 24px;
+  box-shadow:var(--shadow-2); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  transition:box-shadow .22s ease, transform .22s ease;
+}
+.card:hover{box-shadow:var(--shadow-hover); transform:translateY(-2px);}
+.card h4{font-family:var(--sans); font-size:16px; font-weight:700; margin:0 0 8px; color:var(--ink);}
+.card p{font-size:15px; color:var(--ink-2); margin:0 0 .7em;}
+.card p:last-child{margin-bottom:0;}
+
+/* ============================================================
+   PANELS
+   ============================================================ */
+.panel{
+  background:var(--glass-2); border:1px solid var(--glass-border);
+  border-radius:var(--radius); padding:30px 34px; margin:26px 0;
+  box-shadow:var(--shadow); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+}
+.panel.invert, .plainbox{
+  background:var(--invert-bg); border:1px solid var(--invert-line);
+  color:var(--invert-ink); box-shadow:none;
+}
+.panel.invert h2, .panel.invert h3, .panel.invert h4,
+.plainbox h2, .plainbox h3, .plainbox h4{font-family:var(--serif); color:var(--invert-ink);}
+.panel.invert p, .plainbox p{color:var(--invert-ink-2);}
+.panel.invert strong, .plainbox strong{color:var(--invert-ink);}
+.panel.invert a, .plainbox a{color:var(--blue-ink);}
+.panel.invert .kicker, .plainbox .kicker{color:var(--invert-ink-2);}
+
+.fieldnote{
+  background:var(--note-bg); border:1px solid var(--note-line);
+  border-left:3px solid var(--blue); border-radius:var(--radius-2);
+  padding:18px 22px; margin:22px 0; font-size:15px; color:var(--ink-2);
+}
+.fieldnote .kicker{color:var(--blue-ink);}
+.fieldnote p:last-child{margin-bottom:0;}
+.warning{
+  background:var(--warn-bg); border:1px solid var(--warn-line);
+  border-left:3px solid var(--orange); border-radius:var(--radius-2);
+  padding:18px 22px; margin:22px 0; font-size:15px; color:var(--warn-ink);
+}
+.warning .kicker{color:var(--warn-ink);}
+.warning strong{color:var(--warn-ink);}
+.warning p:last-child{margin-bottom:0;}
+
+/* ============================================================
+   TAGS + STATS
+   ============================================================ */
+.tag{
+  display:inline-block; font-family:var(--mono); font-size:10px; font-weight:700;
+  letter-spacing:.07em; text-transform:uppercase;
+  border-radius:999px; padding:3px 9px; margin:0 5px 5px 0;
+  background:var(--surface-2); color:var(--ink-2);
+}
+.tag.blue{background:var(--blue-soft);   color:var(--blue-ink);}
+.tag.green{background:var(--green-soft); color:var(--green-ink);}
+.tag.orange{background:var(--orange-soft);color:var(--orange-ink);}
+.tag.purple{background:var(--purple-soft);color:var(--purple-ink);}
+.tag.red{background:var(--red-soft);     color:var(--red-ink);}
+
+.stat{
+  background:var(--glass); border:1px solid var(--glass-border);
+  border-radius:var(--radius-2); padding:20px 22px; box-shadow:var(--shadow-2);
+}
+.stat .n{
+  font-family:var(--serif); font-weight:900; font-size:clamp(28px,3.4vw,42px);
+  line-height:1.05; letter-spacing:-.02em; color:var(--ink); display:block;
+}
+.stat .t{font-size:13px; color:var(--ink-dim); margin-top:7px; display:block;}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.tablewrap{
+  background:var(--surface); border:1px solid var(--line-solid);
+  border-radius:var(--radius-2); margin:26px 0; overflow:hidden; box-shadow:var(--shadow-2);
+}
+.table-scroll{overflow-x:auto; max-height:640px; overflow-y:auto;}
+table{border-collapse:collapse; width:100%; font-size:14.5px; min-width:640px;}
+thead th{
+  position:sticky; top:0; z-index:2;
+  background:var(--surface-3); color:var(--ink-2);
+  font-family:var(--mono); font-size:10.5px; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  text-align:left; padding:12px 16px; border-bottom:1px solid var(--line-strong);
+}
+tbody td{padding:13px 16px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top;}
+tbody tr:last-child td{border-bottom:0;}
+tbody tr:hover td{background:var(--surface-2);}
+tbody td strong{color:var(--ink);}
+
+/* ============================================================
+   CODE
+   ============================================================ */
+pre.term, pre.light{
+  border-radius:var(--radius-2); padding:19px 22px; margin:22px 0;
+  overflow-x:auto; font-family:var(--mono); font-size:13px; line-height:1.65;
+}
+pre.term{background:var(--code-bg); color:var(--code-ink); border:1px solid var(--code-line);}
+pre.light{background:var(--code-light-bg); color:var(--code-light-ink); border:1px solid var(--line);}
+pre .c{color:var(--code-c);}  pre .k{color:var(--code-k);}  pre .g{color:var(--code-g);}
+pre .r{color:var(--code-r);}  pre .y{color:var(--code-y);}
+code{
+  font-family:var(--mono); font-size:.9em;
+  background:var(--surface-2); color:var(--ink); border-radius:6px; padding:1px 5px;
+}
+pre code{background:transparent; padding:0; color:inherit;}
+
+/* ============================================================
+   ACCORDION
+   ============================================================ */
+.fam{
+  background:var(--surface); border:1px solid var(--line-solid);
+  border-radius:var(--radius-2); margin:12px 0; overflow:hidden;
+}
+.fam-head{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding:16px 22px; cursor:pointer; user-select:none;
+}
+.fam-head:hover{background:var(--surface-2);}
+.fam-head h4{margin:0; font-size:16px; font-weight:600; color:var(--ink);}
+.fam-head::after{content:"+"; font-family:var(--mono); font-size:17px; color:var(--ink-dim);}
+.fam.open .fam-head::after{content:"–";}
+.fam-body{display:grid; grid-template-rows:0fr; transition:grid-template-rows .26s ease;}
+.fam.open .fam-body{grid-template-rows:1fr;}
+.fam-body > div{overflow:hidden;}
+.fam-body .inner{padding:0 22px 20px; font-size:15px; color:var(--ink-2);}
+
+/* ============================================================
+   CHIPS
+   ============================================================ */
+.chiprow{display:flex; flex-wrap:wrap; gap:8px; margin:20px 0;}
+.chip{
+  font-size:13px; font-weight:500; cursor:pointer;
+  background:var(--pill-bg); color:var(--pill-ink);
+  border:1px solid var(--line); border-radius:999px; padding:6px 14px;
+}
+.chip.active{background:var(--pill-on-bg); color:var(--pill-on-ink); border-color:transparent;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
+.verstamp{
+  font-family:var(--mono); font-size:11.5px; line-height:1.75;
+  color:var(--ink-dim); max-width:90ch;
+}
+
+/* ============================================================
+   POWER BARS
+   ============================================================ */
+.pwrow{
+  display:grid; grid-template-columns:190px 1fr 108px; gap:14px;
+  align-items:center; margin:10px 0; font-size:14px;
+}
+.pwlab{color:var(--ink-2); font-weight:600;}
+.pwtrack{
+  background:var(--surface-2); border:1px solid var(--line);
+  border-radius:999px; height:14px; overflow:hidden;
+}
+.pwfill{display:block; height:100%; background:var(--blue); border-radius:999px;}
+.pwfill.next{background:var(--orange);}
+.pwval{
+  font-family:var(--mono); font-size:12.5px; color:var(--ink-dim); text-align:right;
+}
+.panel .verstamp{margin:18px 0 0;}
+@media(max-width:700px){ .pwrow{grid-template-columns:118px 1fr 84px; gap:9px; font-size:13px;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="contact-strip">
+    <div class="wrap">
+      <a class="contact-link" href="mailto:ponelson@gmail.com">Email</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/ponelson/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="contact-link" href="https://ponelson.github.io/pon/" target="_blank" rel="noopener">GitHub</a>
+      <button class="contact-link" id="themeToggle" aria-pressed="false">
+        <span id="themeLabel">Dark</span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="wrap">
+      <span class="brand">The Compute Market</span>
+      <span class="vtag">v2.0</span>
+      <div id="navlinks"></div>
+      <button id="menubtn" aria-label="Menu">☰</button>
+    </div>
+    <div id="drawer"></div>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+  <div class="wrap">
+    <div class="eyebrow">REFERENCE / <b>v2.0</b> · 11 September 2026, 7:10 AM ET · build 2026-09-11T07:10-04:00</div>
+    <h1 class="h1">The chip stopped being <em>the product</em>.</h1>
+    <p class="lede">A buyer's-eye survey of what is actually for sale in AI infrastructure as of September 2026: accelerators, rack systems, the two prices each of them carries, the kilowatts they need, and the memory and storage products that now set the cost of all of it. Every figure carries its source and its date, because most of them will be wrong within two quarters.</p>
+    <a class="cta" href="#reading">Read on</a>
+    <a class="cta ghost" href="#choosing">Jump to the decision rules</a>
+  </div>
+</header>
+
+<section class="section" id="reading" data-nav="Reading">
+  <div class="wrap">
+    <div class="kicker">How to read the numbers</div>
+    <h2>Six ways a spec sheet misleads.</h2>
+    <p class="sub">Most published comparisons in this market are wrong in one of six specific ways. They are worth learning before the tables, because every table below is built to avoid them.</p>
+
+    <p><strong>Dense against sparse.</strong> NVIDIA publishes two figures for low precision. The GB200 NVL72 and the GB300 NVL72 both print 1,440 PFLOPS of FP4 with structured sparsity. Their dense figures are 720 and 1,080. Quoting the sparse number for one generation and the dense number for the other manufactures a difference that is not there, and it is the single most common error in circulation. Every compute figure in this document is dense unless it says otherwise.</p>
+
+    <p><strong>Precision.</strong> FP4 roughly doubles FP8, which roughly doubles FP16. A vendor comparing its FP4 against a competitor's FP8 has said nothing. Comparisons here are held to one precision at a time.</p>
+
+    <p><strong>Package against die.</strong> A Blackwell or Rubin package holds two reticle-sized compute dies. NVIDIA announced the Rubin rack as NVL144, counting dies, then reverted at CES in January 2026 to VR200 NVL72, counting packages. Both names describe 72 accelerators in one rack. Coverage that treats NVL144 as twice the machine is counting the same silicon twice.</p>
+
+    <p><strong>Vendor claim against measurement.</strong> Headline performance multiples come from the vendor's own harness on the vendor's own workload. They are useful as direction and useless as procurement input. Where a claim is a vendor claim, it is tagged as one here.</p>
+
+    <p><strong>Per chip against per system.</strong> Huawei's answer to a per-chip deficit against Rubin is to wire 8,192 chips into one pod. Google's answer is a 9,216-chip superpod. Per-chip tables flatter NVIDIA and AMD; per-system tables flatter whoever built the biggest fabric. Both views are below, and they disagree.</p>
+
+    <p><strong>Price.</strong> There is no list price for any rack-scale system from any vendor. Every rack figure in circulation is a reported estimate, a bill-of-materials guess, or a leak. Meanwhile the identical accelerator rents for five to ten times more on a hyperscaler than on a specialist cloud. A single price for any of this does not exist.</p>
+
+    <div class="fieldnote">
+      <div class="kicker">Tag key</div>
+      <p>Status tags hold one meaning throughout. <span class="tag green">SHIPPING</span> generally available and installable now. <span class="tag blue">H2 2026</span> in production, customer shipments during this half. <span class="tag orange">LIMITED</span> single provider, allocation only, or thin market. <span class="tag purple">VENDOR CLAIM</span> figure comes from the manufacturer and has not been independently reproduced. <span class="tag red">NO PUBLIC PRICE</span> nothing you can quote without a sales conversation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="silicon" data-nav="Silicon">
+  <div class="wrap">
+    <div class="kicker">Accelerators</div>
+    <h2>Eleven parts, three markets.</h2>
+    <p class="sub">The merchant market is NVIDIA and AMD. The captive market is Google, Amazon and the other hyperscalers building their own. The sanctioned market is Huawei. They compete for the same HBM supply and the same packaging capacity, which is why they all moved in the same direction at the same time.</p>
+
+    <div class="chiprow" id="chipfilter">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="nvidia">NVIDIA</button>
+      <button class="chip" data-filter="amd">AMD</button>
+      <button class="chip" data-filter="captive">Captive silicon</button>
+      <button class="chip" data-filter="china">China</button>
+    </div>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr>
+            <th>Part</th><th>Process &middot; transistors</th><th>Memory</th><th>Bandwidth</th><th>Dense low precision</th><th>Board power</th><th>Status</th>
+          </tr></thead>
+          <tbody>
+            <tr data-cat="nvidia"><td><strong>NVIDIA H100 SXM</strong></td><td>TSMC 4N &middot; 80 B</td><td>80 GB HBM3</td><td>3.35 TB/s</td><td>1.98 PFLOPS FP8</td><td>700 W</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr data-cat="nvidia"><td><strong>NVIDIA H200 SXM</strong></td><td>TSMC 4N &middot; 80 B</td><td>141 GB HBM3e</td><td>4.8 TB/s</td><td>1.98 PFLOPS FP8</td><td>700 W</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr data-cat="nvidia"><td><strong>NVIDIA B200</strong></td><td>TSMC 4NP &middot; 208 B (2 dies)</td><td>180&ndash;192 GB HBM3e</td><td>8 TB/s</td><td>10 PFLOPS FP4 &middot; 4.5 FP8</td><td>1,000&ndash;1,200 W</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr data-cat="nvidia"><td><strong>NVIDIA B300</strong> (Blackwell Ultra)</td><td>TSMC 4NP &middot; 208 B (2 dies)</td><td>288 GB HBM3e, 12-high</td><td>8 TB/s</td><td>15 PFLOPS FP4 &middot; 5 FP8</td><td>1,400 W</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr data-cat="nvidia"><td><strong>NVIDIA Rubin</strong> (VR200)</td><td>TSMC N3 &middot; 336 B (2 dies)</td><td>288 GB HBM4</td><td>22 TB/s</td><td>50 PFLOPS NVFP4</td><td>1,800 W MaxQ &middot; 2,300 W MaxP</td><td><span class="tag blue">H2 2026</span></td></tr>
+            <tr data-cat="amd"><td><strong>AMD Instinct MI300X</strong></td><td>TSMC N5 / N6 &middot; 153 B</td><td>192 GB HBM3</td><td>5.3 TB/s</td><td>2.6 PFLOPS FP8 <span class="tag">5.2 sparse</span></td><td>750 W</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr data-cat="amd"><td><strong>AMD Instinct MI355X</strong></td><td>TSMC N3P / N6 &middot; 185 B</td><td>288 GB HBM3E</td><td>8 TB/s</td><td>10.1 PFLOPS MXFP4 &middot; 5 FP8</td><td>1,400 W</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr data-cat="amd"><td><strong>AMD Instinct MI455X</strong></td><td>TSMC N2 compute / N3P fabric &middot; 320 B</td><td>432 GB HBM4, 12 stacks</td><td>23.3 TB/s</td><td>40 PFLOPS FP4 &middot; 20 FP8</td><td>not published</td><td><span class="tag blue">H2 2026</span></td></tr>
+            <tr data-cat="captive"><td><strong>Google TPU v7</strong> (Ironwood)</td><td>TSMC, ~700 mm&sup2; die</td><td>192 GB HBM3e</td><td>7.37 TB/s</td><td>4.6 PFLOPS FP8</td><td>~600 W</td><td><span class="tag green">SHIPPING</span> <span class="tag red">NO PUBLIC PRICE</span></td></tr>
+            <tr data-cat="captive"><td><strong>AWS Trainium3</strong></td><td>TSMC 3 nm</td><td>144 GB HBM3e</td><td>not published</td><td>2.52 PFLOPS FP8</td><td>not published</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr data-cat="china"><td><strong>Huawei Ascend 950PR</strong></td><td>7 nm class, domestic</td><td>112 GB Huawei HBM</td><td>1.4 TB/s</td><td>1.56 PFLOPS FP4</td><td>600 W</td><td><span class="tag green">SHIPPING</span> <span class="tag purple">VENDOR CLAIM</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Three things in that table matter more than the ranking. The first is that <strong>B300 is the same silicon as B200</strong>. Same TSMC 4NP die, same 208 billion transistors, same FP8 throughput. The generational step is 12-high HBM stacks instead of 8-high, which buys 288 GB against 180, and a 1.5x lift in dense FP4. If your bottleneck is arithmetic rather than capacity, Blackwell Ultra sells you nothing.</p>
+
+    <p>The second is that <strong>Rubin is a real node change</strong>, not a memory refresh: TSMC N3, 336 billion transistors, HBM4 at 22 TB/s against HBM3e at 8. NVIDIA raised the bandwidth target from an original 13 TB/s during development, which forced all three memory suppliers to resubmit HBM4 samples and pushed mass production to the end of the first quarter of 2026.</p>
+
+    <p>The third is that <strong>AMD is ahead on memory capacity and behind on fabric</strong>. MI355X ships 288 GB when Blackwell shipped 180, and MI455X is specified at 432 GB when Rubin carries 288. AMD's answer on interconnect is UALink carried over Ethernet rather than NVLink, with scale-out on Ultra Ethernet. That is a genuine architectural bet on open standards rather than a spec-sheet deficit, and it will be settled by deployments rather than by datasheets.</p>
+
+    <div class="fam">
+      <div class="fam-head"><h4>Where the sources disagree</h4></div>
+      <div class="fam-body">
+        <div>
+          <div class="inner">
+            <p><strong>B200 memory.</strong> NVIDIA's original announcement said 192 GB. HGX B200 boards are commonly specified at 180 GB, and the GB200 NVL72 rack aggregate of 13.4 TB across 72 GPUs implies about 186 GB each. All three numbers appear in vendor and integrator documents. The range is given rather than a false precision.</p>
+            <p><strong>MI455X bandwidth, now resolved.</strong> A 19.6 TB/s preview figure circulated before launch and is still in wide circulation. AMD's published specification is 23.3 TB/s across twelve HBM4 stacks on a 192-channel interface, and that figure now appears on AMD's own MI400 product page. The preview number is superseded, not disputed. This document carried the lower figure in v1.0 and was wrong to.</p>
+            <p><strong>MI300X throughput.</strong> AMD documents this part in both Matrix and Vector forms and quotes 5.2 PFLOPS of FP8 with sparsity in its own product brief. The dense figure is 2.6 PFLOPS. Both numbers are AMD's, and the gap between them is precisely the trap described at the top of this document.</p>
+            <p><strong>Ironwood power.</strong> The ~600 W figure comes from third-party analysis, not from a Google datasheet. Google has published performance and capacity for Ironwood but not a board power specification.</p>
+            <p><strong>Ascend 950PR.</strong> Compute, memory and power come from Huawei's launch materials and Chinese trade coverage. The comparison Huawei draws is against the export-restricted H20, not against a full Blackwell part, and no independent benchmark of the chip has been published.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="racks" data-nav="Racks">
+  <div class="wrap">
+    <div class="kicker">Rack systems</div>
+    <h2>The unit of purchase is now the cabinet.</h2>
+    <p class="sub">Every serious 2026 product is sold as an integrated rack with its own power distribution, liquid loop and switch fabric. You are not buying accelerators that happen to share a cabinet. You are buying one coherent memory domain, and the fabric is most of what the premium pays for.</p>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr>
+            <th>System</th><th>Accelerators</th><th>Pooled fast memory</th><th>Dense FP4</th><th>Rack power</th><th>Status</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><strong>NVIDIA GB200 NVL72</strong></td><td>72 B200 + 36 Grace</td><td>13.4 TB HBM3e</td><td>720 PFLOPS <span class="tag">1,440 sparse</span></td><td>~120&ndash;125 kW</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>NVIDIA GB300 NVL72</strong></td><td>72 B300 + 36 Grace</td><td>20.7 TB HBM3e</td><td>1,080 PFLOPS <span class="tag">1,440 sparse</span></td><td>~120&ndash;142 kW</td><td><span class="tag green">SHIPPING</span> <span class="tag red">NO PUBLIC PRICE</span></td></tr>
+            <tr><td><strong>NVIDIA VR200 NVL72</strong></td><td>72 Rubin + 36 Vera</td><td>20.7 TB HBM4, 1,580 TB/s</td><td>3,600 PFLOPS inference &middot; 2,520 training</td><td>~190&ndash;230 kW</td><td><span class="tag blue">H2 2026</span></td></tr>
+            <tr><td><strong>NVIDIA VR NVL144 CPX</strong></td><td>72 Rubin + 144 Rubin CPX</td><td>100 TB fast memory, 1.7 PB/s</td><td>8,000 PFLOPS <span class="tag purple">VENDOR CLAIM</span></td><td>~370 kW</td><td><span class="tag blue">H2 2026</span></td></tr>
+            <tr><td><strong>AMD Helios</strong></td><td>72 MI455X + EPYC Venice</td><td>31 TB HBM4, 1.67 PB/s</td><td>2,900 PFLOPS &middot; 1,400 FP8</td><td>~140 kW est.</td><td><span class="tag blue">H2 2026</span></td></tr>
+            <tr><td><strong>Google Ironwood superpod</strong></td><td>9,216 TPU v7</td><td>1.77 PB HBM</td><td>no FP4 path &middot; 42.5 EFLOPS FP8</td><td>not published</td><td><span class="tag green">SHIPPING</span> <span class="tag orange">CLOUD ONLY</span></td></tr>
+            <tr><td><strong>AWS Trainium3 UltraServer</strong></td><td>144 Trainium3</td><td>not published</td><td>no FP4 path &middot; 362 PFLOPS FP8</td><td>not published</td><td><span class="tag green">SHIPPING</span> <span class="tag orange">CLOUD ONLY</span></td></tr>
+            <tr><td><strong>Huawei Atlas 950 SuperPoD</strong></td><td>8,192 Ascend 950DT</td><td>not published</td><td>524 EFLOPS FP8 <span class="tag purple">VENDOR CLAIM</span></td><td>160 cabinets, ~1,000 m&sup2;</td><td><span class="tag blue">Q4 2026</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Read down the memory column rather than the compute column. A GB300 rack pools 20.7 TB of HBM3e in one NVLink domain, which means a quantized trillion-parameter model occupies a small fraction of the cabinet and the rest of it is available for context and concurrency. That pooling is the product. Eight separate servers holding the same total memory are not the same machine, and the gap shows up as tokens per second on long context rather than as a number on a spec sheet.</p>
+
+    <p>AMD's Helios pools more memory than either NVIDIA rack, 31 TB against 20.7, and reaches it over UALink-on-Ethernet rather than NVLink, in a double-wide OCP Open Rack Wide chassis rather than a standard cabinet. AMD's stated position at launch was up to 30 percent more tokens per dollar than Rubin NVL72. That is a vendor claim about an unshipped comparison, and it is the number the next two quarters will actually test.</p>
+
+    <p>The two pod entries at the bottom of the table are a different kind of product. Neither Google nor Amazon sells you a cabinet. You rent capacity inside their fabric, priced by the chip-hour or by the committed contract, and the pod scale is what they are selling rather than the chip.</p>
+
+    <div class="warning">
+      <div class="kicker">On rack prices</div>
+      <p>No vendor publishes a list price for any system in this table. Reported figures in circulation are roughly $5M to $7M for VR200 NVL72, around $6M for GB300 NVL72, and around $5.25M for a fully configured Helios rack. Each traces to trade press or analyst estimate, not to a price list, and one widely repeated $8.8M figure for Rubin actually belongs to the 2028 Rubin Ultra. Treat all four as order-of-magnitude only. A Morgan Stanley bill-of-materials estimate for Rubin near $7.8M has also circulated, which is a component cost and cannot be compared against a sale price.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="price" data-nav="Price">
+  <div class="wrap">
+    <div class="kicker">Performance per dollar</div>
+    <h2>Two markets, and the rented one is legible.</h2>
+    <p class="sub">Buying is opaque and rationed. Renting is public, competitive and quoted by the GPU-hour, which makes it the only place where price per unit of work can be computed honestly. So that is where the arithmetic below lives.</p>
+
+    <h3 class="sub-h">What the cards rent for</h3>
+    <p>Rates below are the range of published on-demand rates in the first week of September 2026, low end from specialist clouds and marketplaces, high end from hyperscaler on-demand or reserved capacity blocks. The derived columns are arithmetic on the low end of each range, using dense FP8 throughput and HBM capacity from the silicon table. They are mine, not a vendor's.</p>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr>
+            <th>Card</th><th>Specialist / marketplace</th><th>Hyperscaler</th><th>Memory</th><th>Dense FP8</th><th>$ per PFLOP-hour</th><th>$ per TB of HBM-hour</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><strong>H100 80GB</strong></td><td>$1.49&ndash;$4.17</td><td>up to ~$11</td><td>80 GB</td><td>1.98 PFLOPS</td><td>$1.71 <span class="tag">at $3.38</span></td><td>$42</td></tr>
+            <tr><td><strong>H200</strong></td><td>$2.09&ndash;$4.79</td><td>$4.98&ndash;$10.87</td><td>141 GB</td><td>1.98 PFLOPS</td><td>$2.22 <span class="tag">at $4.40</span></td><td>$31</td></tr>
+            <tr><td><strong>B200</strong></td><td>$5.91&ndash;$7.15</td><td>$12.36 AWS blocks</td><td>180 GB</td><td>4.5 PFLOPS</td><td>$1.44 <span class="tag">at $6.50</span></td><td>$36</td></tr>
+            <tr><td><strong>B300</strong></td><td>~$8.55</td><td>$14.04 AWS blocks</td><td>288 GB</td><td>5.0 PFLOPS</td><td>$1.71 <span class="tag">at $8.55</span></td><td>$30</td></tr>
+            <tr><td><strong>MI300X</strong></td><td>$1.99&ndash;$3.45</td><td>$6.00&ndash;$7.86 Azure</td><td>192 GB</td><td>2.6 PFLOPS</td><td>$0.91 <span class="tag">at $2.39</span></td><td>$12</td></tr>
+            <tr><td><strong>MI355X</strong> <span class="tag orange">LIMITED</span></td><td>$2.59&ndash;$2.95</td><td>$8.60 Oracle bare metal</td><td>288 GB</td><td>5.0 PFLOPS</td><td>$0.52 <span class="tag">at $2.59</span></td><td>$9</td></tr>
+            <tr><td><strong>GB200 NVL72</strong>, per GPU</td><td>$10.50 list</td><td>quote only</td><td>186 GB</td><td>4.5 PFLOPS</td><td>$2.33</td><td>$56</td></tr>
+            <tr><td><strong>TPU v6e</strong></td><td colspan="2">$2.70 on demand, $1.22 on a three-year commit, published by Google</td><td>32 GB</td><td>not comparable</td><td>&mdash;</td><td>&mdash;</td></tr>
+            <tr><td><strong>TPU v7, Rubin</strong></td><td colspan="6">No public hourly rate exists for either. Any figure quoted for them today was invented by whoever quoted it.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Five readings come out of that table, and four of them contradict the marketing.</p>
+
+    <p><strong>Hourly rate is the wrong metric.</strong> B200 costs roughly twice an H100 per hour and delivers more than twice the arithmetic, so it is cheaper per unit of work despite the higher sticker. Cost per completed run is the number that decides a budget, and it frequently points at the more expensive card.</p>
+
+    <p><strong>H200 is the memory thesis in one row.</strong> It has the worst dollars per PFLOP-hour in the table, $2.22, because it carries H100 compute at a higher rate. It also has the second-best dollars per TB-hour, $31, because it carries 141 GB instead of 80. Nobody rents an H200 for its arithmetic. Its entire premium is capacity and bandwidth, and the market pays it.</p>
+
+    <p><strong>B300 sells memory, not FLOPS.</strong> Its dollars per PFLOP-hour land exactly where H100 lands, because dense FP8 did not move from B200 and the rate did. What it buys is 288 GB in one address space, at $30 per TB-hour against B200's $36 and H100's $42. Step up only when a model needs the capacity.</p>
+
+    <p><strong>The NVLink domain has a visible price.</strong> The same class of GPU inside a GB200 NVL72 rents at $10.50 against roughly $6.50 loose. You are paying about 60 percent more per GPU-hour for the fabric that makes 72 of them behave as one accelerator. For long-context inference and large-model training that is often the cheapest thing in the bill of materials. For anything that fits on eight cards it is waste.</p>
+
+    <p><strong>On AMD, the provider spread is larger than the vendor difference.</strong> MI355X is quoted between $2.59 at Vultr and $8.60 per GPU-hour on Oracle bare metal, across four providers tracked in early September. At the bottom of that range it prices at roughly a third of B300 for the same 288 GB and the same 5 dense FP8 PFLOPS. At the top it lands at $1.72 per PFLOP-hour and $30 per TB-hour, which is B300's position to the cent. The same silicon is both the cheapest and an unremarkable thing to rent depending on who you rent it from, and neither figure includes the cost of ROCm portability work. MI300X is the part with real rental liquidity, and at $0.91 per PFLOP-hour it is the cheapest arithmetic in the table by a wide margin. v1.0 of this document read the low MI355X quote as a market rate. It is not one. There is no market rate.</p>
+
+    <h3 class="sub-h">What the hardware costs to own</h3>
+    <p>Card-level purchase prices are still quoted in the channel: roughly $31,000 for a new H100 80GB, $250,000 to $320,000 for an eight-GPU HGX H100 system, and $45,000 to $55,000 per B200 before the server around it. Above that level, prices stop being published. Rack systems are allocated rather than listed, and the numbers in the warning above are the best reported estimates rather than quotes.</p>
+
+    <div class="fam">
+      <div class="fam-head"><h4>How the derived columns were computed</h4></div>
+      <div class="fam-body">
+        <div>
+          <div class="inner">
+            <p>Dollars per PFLOP-hour is the chosen hourly rate divided by dense FP8 PFLOPS. Dollars per TB of HBM-hour is the chosen hourly rate divided by memory capacity in terabytes. H100 uses the tracked median of about $3.38 and H200 the tracked median of about $4.40, rather than the marketplace floor in either case, because the floor is interruptible capacity on consumer-grade hosting. B200 uses $6.50 as the midpoint of the specialist range. B300 uses the single specialist rate observed. MI300X uses $2.39, a dedicated on-demand rate from a tracker refreshed 1 September, not the $1.99 promotional floor. MI355X uses $2.59, the low end of a four-provider range, and the text gives the arithmetic at the high end as well because with a spread this wide a single derived figure is misleading on its own.</p>
+            <p>What this arithmetic deliberately ignores: utilization, which is where most of the real money goes and typically runs near 40 percent on training clusters; interconnect, which does not appear in a per-card rate at all; software portability cost, which is the whole argument between CUDA and ROCm; and storage and egress, which are billed separately everywhere. Peak FLOPS is a ceiling, not a throughput. Use this table to rank candidates, then benchmark the two survivors on your own workload before committing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="power" data-nav="Power">
+  <div class="wrap">
+    <div class="kicker">Performance per watt, and per site</div>
+    <h2>The constraint is the busbar.</h2>
+    <p class="sub">More purchase decisions in 2026 were settled by what a building can deliver to one cabinet than by any benchmark. The rack power curve has gone near vertical in three generations, and the facility is what refuses first.</p>
+
+    <div class="panel">
+      <div class="pwrow"><span class="pwlab">Average enterprise rack</span><span class="pwtrack"><span class="pwfill" style="width:1.5%"></span></span><span class="pwval">~9 kW</span></div>
+      <div class="pwrow"><span class="pwlab">Hopper era air-cooled</span><span class="pwtrack"><span class="pwfill" style="width:7%"></span></span><span class="pwval">~40 kW</span></div>
+      <div class="pwrow"><span class="pwlab">GB200 NVL72</span><span class="pwtrack"><span class="pwfill" style="width:21%"></span></span><span class="pwval">~125 kW</span></div>
+      <div class="pwrow"><span class="pwlab">GB300 NVL72</span><span class="pwtrack"><span class="pwfill" style="width:23%"></span></span><span class="pwval">~136 kW</span></div>
+      <div class="pwrow"><span class="pwlab">AMD Helios, estimated</span><span class="pwtrack"><span class="pwfill next" style="width:23%"></span></span><span class="pwval">~140 kW</span></div>
+      <div class="pwrow"><span class="pwlab">VR200 NVL72</span><span class="pwtrack"><span class="pwfill next" style="width:38%"></span></span><span class="pwval">~190&ndash;230 kW</span></div>
+      <div class="pwrow"><span class="pwlab">Rubin CPX rack</span><span class="pwtrack"><span class="pwfill next" style="width:62%"></span></span><span class="pwval">~370 kW</span></div>
+      <div class="pwrow"><span class="pwlab">Rubin Ultra, Kyber, 2027</span><span class="pwtrack"><span class="pwfill next" style="width:100%"></span></span><span class="pwval">~600 kW</span></div>
+      <p class="verstamp">Bars are linear against a 600 kW scale. Enterprise average from the Uptime Institute 2025 survey. Blackwell and Rubin figures are integrator and analyst reports; NVIDIA has not published a rack power specification for VR200. The Helios figure is a third-party estimate for a double-wide chassis and is not directly comparable to a single-width cabinet; AMD has published neither a rack nor a per-accelerator power specification.</p>
+    </div>
+
+    <p>One integrator building all three generations puts the step change plainly: 125 kW for its GB200 rack, 136 kW for GB300, and 228 kW for the Vera Rubin build. Delivering that needs a busbar rated above 5,000 amps and 3U power shelves rated at 110 kW each, and full liquid cooling on both compute and switch trays. NVIDIA's roadmap then specifies roughly 600 kW for the 2027 Rubin Ultra cabinet on 800 volt DC distribution, with megawatt-class racks behind it.</p>
+
+    <p>Efficiency is genuinely improving at the same time, which is the part the alarming curve hides. NVIDIA states that VR200 NVL72 carries nearly twice the transistors of GB200 NVL72 while delivering ten times the performance per watt. That is a vendor claim and the multiple is doing promotional work, but the direction is real: every generation has produced more tokens per joule even as it produced far more joules per cabinet. The problem is not efficiency. It is that the efficiency gain is spent immediately on density, and density is what the building has to absorb.</p>
+
+    <div class="panel invert">
+      <div class="kicker">The point</div>
+      <h3>If you cannot put 130 kW into one cabinet and take the heat out in liquid, the 2026 product line is not available to you at any price.</h3>
+      <p>That is the first filter on every purchase decision below, and it eliminates most existing enterprise data halls before the comparison starts. The practical options are colocation with validated high-density loops, a purpose-built site, or renting.</p>
+    </div>
+  </div>
+</section>
+<section class="section" id="memory" data-nav="Memory">
+  <div class="wrap">
+    <div class="kicker">Memory</div>
+    <h2>Three companies price the whole market.</h2>
+    <p class="sub">SK hynix, Samsung and Micron make all the high-bandwidth memory there is. In 2026 that stopped being a supply-chain footnote and became the price-setting input for accelerators, servers, phones and desktop PCs at the same time.</p>
+
+    <h3 class="sub-h">The HBM4 transition, as it actually went</h3>
+    <p>HBM4 doubles the interface width to 2,048 bits and is the memory under both Rubin and MI455X. The generation ran late for a specific reason: NVIDIA pushed required pin speed above 11 Gbps during development, all three suppliers had to revise designs and resubmit samples, and mass production slipped to the end of the first quarter of 2026.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <span class="tag green">SHIPPING</span>
+        <h4>SK hynix</h4>
+        <p>Holds roughly 50 to 62 percent of HBM depending on the quarter and the source. Was first to demonstrate 16-layer HBM4 and shipped 12-stack HBM4E samples in June 2026. One analyst projection puts its share of HBM4 for the Rubin platform near 70 percent, which is a projection rather than an allocation anyone has confirmed.</p>
+      </div>
+      <div class="card">
+        <span class="tag green">SHIPPING</span>
+        <h4>Samsung</h4>
+        <p>Announced HBM4 mass production and commercial shipment in February 2026 at 11.7 Gbps, rated to 13, on a 4 nm logic base die. It was Samsung's first claim of a generational lead over SK hynix. Shipped the first 12-layer HBM4E samples in May 2026 and guided to HBM sales more than tripling across the year.</p>
+      </div>
+      <div class="card">
+        <span class="tag green">SHIPPING</span>
+        <h4>Micron</h4>
+        <p>Began volume shipment of HBM4 36GB 12-high in the first calendar quarter of 2026. Has spent the cycle taking allocation share from Samsung on some designs, which was the competitive surprise of the generation.</p>
+      </div>
+    </div>
+
+    <p>Capacity per accelerator is the number that follows from all of this. A Rubin package carries eight HBM4 stacks for 288 GB. MI455X carries 432 GB. Independent estimates for a 36GB 12-high HBM4 stack run near $550, which would put roughly $4,400 of memory inside a single Rubin package. That last figure is arithmetic on a third-party estimate rather than a contract price, and it should be treated as an order of magnitude and nothing finer.</p>
+
+    <h3 class="sub-h">The conventional DRAM shock</h3>
+    <p>Suppliers moved advanced nodes onto HBM and server DRAM because the margins are better, and every other buyer of memory paid for it. The sequence in contract prices, from TrendForce:</p>
+
+    <div class="grid g4">
+      <div class="stat"><span class="n">+45&ndash;50%</span><span class="t">Conventional DRAM contract prices, 4Q25 quarter on quarter</span></div>
+      <div class="stat"><span class="n">+90&ndash;95%</span><span class="t">1Q26, revised up from an original 55 to 60 percent forecast</span></div>
+      <div class="stat"><span class="n">+105&ndash;110%</span><span class="t">PC DRAM specifically in 1Q26, the steepest single quarter on record</span></div>
+      <div class="stat"><span class="n">+13&ndash;18%</span><span class="t">Server DRAM in 3Q26, moderating as long-term agreements bite</span></div>
+    </div>
+
+    <p>The moderation in the third quarter is not a market loosening. It is contract structure: several large US cloud providers signed multi-year agreements that restrict suppliers from raising their prices, so the increases now land on everyone outside those agreements. Supply stays short. TrendForce's early read on 2027 has RDIMM bit supply growing only 15 to 20 percent year on year against faster growth in server CPU shipments, which is why buyers who already have their second-half 2026 allocation are still building inventory.</p>
+
+    <p>The clearest evidence that this is now a first-order cost rather than a procurement irritation is in NVIDIA's own numbers. Gross margin was 75.0 percent in the quarter ended July 2026 on $96.2 billion of revenue, of which $89.0 billion was data center. Management guided margin to decline and bottom out at 71 to 72 percent in the fourth quarter of the fiscal year, and named memory prices as a reason. The CFO's framing was that today's memory scarcity is driven in large part by the AI buildout itself.</p>
+
+    <div class="panel invert">
+      <div class="kicker">The point</div>
+      <h3>Compute is priced in memory now.</h3>
+      <p>The die stopped being the scarce input. HBM allocation decides who can ship accelerators, DRAM contract prices moved the margin guidance of the most valuable company in the industry, and the memory line is where the next surprise in a hardware budget will come from.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="storage" data-nav="Storage">
+  <div class="wrap">
+    <div class="kicker">Storage</div>
+    <h2>Capacity records, and no way to buy them.</h2>
+    <p class="sub">Flash and disk both set capacity records this year while both went scarce. Enterprise SSD is now the largest NAND segment, nearline disk is allocated through the end of the year, and the practical constraint on both is a purchase order queue rather than a datasheet.</p>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Product</th><th>Capacity</th><th>Note</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Kioxia LC9</strong></td><td>245.76 TB</td><td>Largest SSD available in any form factor. Frequently mis-transcribed as 245.88 TB.</td><td><span class="tag orange">LIMITED</span></td></tr>
+            <tr><td><strong>Solidigm D5-P5336</strong></td><td>122.88 TB</td><td>Around $48,400 retail, near $394 per TB, roughly four times its price a few months earlier. One retailer quoted a twelve-month wait.</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Seagate Mozaic 4+</strong></td><td>44 TB SMR &middot; 32 TB CMR</td><td>4 TB per disk conventional recording, up to 4.4 TB shingled. Qualified and in production at two hyperscalers as of March 2026.</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>WD UltraSMR</strong></td><td>40 TB</td><td>In qualification. WD has described its 2026 supply as effectively sold out, with agreements extending into 2027 and 2028.</td><td><span class="tag orange">LIMITED</span></td></tr>
+            <tr><td><strong>Toshiba nearline</strong></td><td>30&ndash;34 TB</td><td>The third supplier, shipping into the same allocated market.</td><td><span class="tag green">SHIPPING</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Two structural facts sit behind the table. Nearline hard drive capacity is fully allocated through calendar 2026 at both major suppliers, and lead times stretched past 52 weeks during 2025. NAND contract prices rose 55 to 60 percent in the first quarter of 2026 and a further 10 to 15 percent in the third, which is slower only in the sense that a record is being extended rather than broken.</p>
+
+    <p>The consequence for anyone sizing an AI build is that the storage tier is no longer the cheap part of the estimate and cannot be ordered late. Capacity per drive is rising fast on both media, but capacity is not throughput: a 44 TB drive delivers roughly the same random performance as a 20 TB drive, so every capacity step makes the rebuild window longer and the IOPS per terabyte worse. That is the calculation that keeps pushing warm data onto flash even at four times the price per terabyte.</p>
+  </div>
+</section>
+
+<section class="section" id="choosing" data-nav="Choosing">
+  <div class="wrap">
+    <div class="kicker">Decision rules</div>
+    <h2>Six rules that survive the next price change.</h2>
+    <p class="sub">Specific numbers in this document go stale in weeks. These do not, because they are about which constraint binds rather than about what anything costs today.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4>Start with the building, not the benchmark</h4>
+        <p>Ask what one cabinet can draw and whether heat leaves in liquid before comparing anything else. A hall that cannot deliver about 130 kW to one cabinet and take the heat out in liquid cannot install the current rack generation at all, and the real choice becomes colocation or rental.</p>
+      </div>
+      <div class="card">
+        <h4>Buy memory capacity, not peak FLOPS</h4>
+        <p>Serving is bound by bandwidth and capacity far more often than by arithmetic. The B200 to B300 step is a memory purchase with the same FP8 underneath, and it is worth it only when a model or its context does not fit.</p>
+      </div>
+      <div class="card">
+        <h4>Pay for the fabric only when the model needs it</h4>
+        <p>A rack-scale NVLink domain costs roughly 60 percent more per GPU-hour than loose cards. Above a trillion parameters or on very long context that is the cheapest line in the budget. For anything that fits on eight cards it is money burned.</p>
+      </div>
+      <div class="card">
+        <h4>Price the run, not the hour</h4>
+        <p>The newer, more expensive card is frequently cheaper per completed job. Benchmark two candidates on your own workload and compare total cost to finish. Hourly rate comparisons are the most common budgeting error in this market.</p>
+      </div>
+      <div class="card">
+        <h4>Treat the last generation as the value tier</h4>
+        <p>H100 costs less now than at any point in its life and its toolchain is the most mature thing in the industry. For fine-tuning, development and inference that fits in 80 GB, it remains the default rather than the compromise.</p>
+      </div>
+      <div class="card">
+        <h4>Put the memory line in the model</h4>
+        <p>DRAM and NAND contract prices moved enough in 2026 to change the gross margin guidance of the company selling the accelerators. Any hardware budget written without a memory price sensitivity is missing its largest live variable.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <p>Two further judgments, offered as judgments rather than as findings. AMD's position is the most interesting thing in the market right now: more memory per accelerator, more pooled memory per rack, standards-based Ethernet instead of a proprietary fabric, and a price that undercuts on the one public listing anybody has found. It also carries the software cost that has kept ROCm a second choice for a decade, and that cost does not appear in any rate card. Whether the tokens-per-dollar claim holds is the question worth watching through the first half of 2027.</p>
+
+    <div class="fieldnote">
+      <div class="kicker">What would falsify this</div>
+      <p>Four things would break the argument above. If MI455X ships in volume and independent benchmarks show the tokens-per-dollar claim holding, the software-cost discount applied to AMD throughout this document is wrong. If memory contract prices flatten through 2027 and NVIDIA's gross margin recovers above 75 percent without a mix change, then memory was a cycle rather than a structural repricing. If a rack-scale system from any vendor ships with a published list price, the opacity described here was a phase rather than a strategy. And if air-cooled or lower-density variants of the 2026 generation reach general availability, the power filter that opens the decision rules stops being the first question and becomes one input among several.</p>
+    </div>
+
+    <p>And the captive silicon is quietly the largest volume story. Google and Amazon do not sell you a chip and do not publish a chip-hour price for their newest parts, which makes their economics unauditable from outside and their pricing power invisible until it shows up in the token price of a hosted model. That opacity is deliberate, and it is why the merchant market remains the only place this analysis can be done at all.</p>
+  </div>
+</section>
+
+<section class="section" id="method" data-nav="Method">
+  <div class="wrap">
+    <div class="kicker">Method and sourcing</div>
+    <h2>What this rests on.</h2>
+
+    <p>Specifications come from manufacturer product pages and technical materials wherever one exists: NVIDIA's developer and investor publications, AMD's Instinct and Helios product pages, Google Cloud's Ironwood announcements, AWS re:Invent materials, and Huawei's own keynote roadmap. Memory and storage market figures come from TrendForce press releases, dated individually in the text. NVIDIA financial figures come from the Form 8-K filed 26 August 2026 for the quarter ended 26 July 2026. Rental rates are public on-demand rates and price-tracker medians observed in the first ten days of September 2026, across GetDeploying, GPUPerHour, Silicon Data, Thunder Compute and provider pricing pages. Where a part is listed by fewer than five providers, the range is given in full rather than reduced to a median, because a median over four listings is not one.</p>
+
+    <p>Everything computed rather than quoted is marked as such: the dollars per PFLOP-hour and dollars per TB-hour columns, and the per-package HBM cost estimate. The derivations are in the accordion in the price section.</p>
+
+    <p>Three things here will age fastest. Rental rates move weekly and the spread between providers is wider than any generational difference. Memory contract prices are being reset every quarter. Ship dates for anything tagged H2 2026 are vendor statements about the future, and the history of this market is that allocation queues run longer than announcements suggest.</p>
+
+    <p>Two things are deliberately absent. There is no independent benchmark normalization here, because MLPerf results do not cover most of the parts in the tables and comparing peak FLOPS across vendors is already generous. And there is no total cost of ownership model, because it would need a facility, a utilization assumption and a workload, and inventing all three would produce a precise number that means nothing.</p>
+
+    <div class="fieldnote">
+      <div class="kicker">Corrections</div>
+      <p>Errors and better sources are welcome at <a href="mailto:ponelson@gmail.com">ponelson@gmail.com</a>. Anything corrected will carry a version bump and a note in the stamp below.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="verstamp">The Compute Market &mdash; v2.0 &middot; build 2026-09-11T07:10-04:00 &middot; supersedes v1.0 (build 2026-09-10T11:33-04:00), which understated MI455X memory bandwidth and read a single MI355X quote as a market rate. Changes in v2: MI455X bandwidth corrected to AMD's published 23.3 TB/s; MI300X added to the silicon and price tables; H200 added to the price table; MI355X repriced across its full four-provider range; Helios rack power, memory bandwidth and interconnect corrected; AMD added to the power ladder; falsifiability conditions added to the decision rules. Covers accelerators, rack systems, rental and purchase pricing, rack power, HBM and conventional memory, and enterprise storage, as of 11 September 2026. Compute figures are dense unless labeled sparse. Derived columns are arithmetic on the stated rates and are marked in the price section.</p>
+  </div>
+</footer>
+
+<script>
+/* theme */
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeToggle'),
+      lbl=document.getElementById('themeLabel'), meta=document.getElementById('themeColorMeta');
+  function read(){ try{return localStorage.getItem('theme');}catch(e){return null;} }
+  function write(v){ try{localStorage.setItem('theme',v);}catch(e){} }
+  function apply(t){
+    root.setAttribute('data-theme',t);
+    if(lbl) lbl.textContent = (t==='dark'?'Light':'Dark');
+    if(btn) btn.setAttribute('aria-pressed', t==='dark' ? 'true':'false');
+    if(meta) meta.setAttribute('content', t==='dark' ? '#0d0d10' : '#f5f5f7');
+  }
+  var saved=read();
+  var initial = saved || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+  apply(initial);
+  if(btn) btn.addEventListener('click',function(){
+    var next = root.getAttribute('data-theme')==='dark' ? 'light':'dark';
+    apply(next); write(next);
+  });
+  if(window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!read()) apply(e.matches?'dark':'light');
+  });
+})();
+
+/* nav builds itself from sections */
+(function(){
+  var secs=[].slice.call(document.querySelectorAll('section.section[data-nav]'));
+  var nl=document.getElementById('navlinks'), dr=document.getElementById('drawer'), mb=document.getElementById('menubtn');
+  secs.forEach(function(s){
+    [[nl],[dr]].forEach(function(h){
+      if(!h[0])return;
+      var a=document.createElement('a');
+      a.href='#'+s.id; a.textContent=s.dataset.nav;
+      h[0].appendChild(a);
+    });
+  });
+  if(mb&&dr) mb.addEventListener('click',function(){dr.classList.toggle('open');});
+  if(dr) dr.addEventListener('click',function(e){if(e.target.tagName==='A')dr.classList.remove('open');});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      [].forEach.call(document.querySelectorAll('#navlinks a'),function(a){
+        a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id);
+      });
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(function(s){io.observe(s);});
+})();
+
+/* accordions */
+[].forEach.call(document.querySelectorAll('.fam-head'),function(h){
+  h.addEventListener('click',function(){h.closest('.fam').classList.toggle('open');});
+});
+
+/* silicon table filter */
+(function(){
+  var row = document.getElementById('chipfilter');
+  if(!row) return;
+  var chips = [].slice.call(row.querySelectorAll('.chip'));
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.classList.remove('active'); });
+      c.classList.add('active');
+      var f = c.dataset.filter;
+      [].forEach.call(document.querySelectorAll('tr[data-cat]'), function(el){
+        el.style.display = (f === 'all' || el.dataset.cat === f) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
