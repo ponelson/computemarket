@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f5f5f7" id="themeColorMeta">
-<title>The Compute Market v2.0 — AI silicon, racks, memory and storage, priced</title>
-<meta property="og:title" content="The Compute Market v2.0">
-<meta property="og:description" content="What is actually for sale in AI infrastructure in September 2026: accelerators, racks, prices, kilowatts, memory and storage.">
-<meta name="description" content="What is actually for sale in AI infrastructure in September 2026: accelerators, racks, prices, kilowatts, memory and storage.">
+<title>The Compute Market v3.0 — AI silicon, racks, cooling, power and memory, priced</title>
+<meta property="og:title" content="The Compute Market v3.0">
+<meta property="og:description" content="What is actually for sale in AI infrastructure in September 2026: accelerators, racks, rack silicon, cooling, power, memory and storage.">
+<meta name="description" content="What is actually for sale in AI infrastructure in September 2026: accelerators, racks, rack silicon, cooling, power, memory and storage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -428,7 +428,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
   <nav class="nav">
     <div class="wrap">
       <span class="brand">The Compute Market</span>
-      <span class="vtag">v2.0</span>
+      <span class="vtag">v3.0</span>
       <div id="navlinks"></div>
       <button id="menubtn" aria-label="Menu">☰</button>
     </div>
@@ -440,7 +440,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
   <div class="orb a"></div>
   <div class="orb b"></div>
   <div class="wrap">
-    <div class="eyebrow">REFERENCE / <b>v2.0</b> · 11 September 2026, 7:10 AM ET · build 2026-09-11T07:10-04:00</div>
+    <div class="eyebrow">REFERENCE / <b>v3.0</b> · 21 September 2026, 5:30 AM ET · build 2026-09-21T05:30-04:00</div>
     <h1 class="h1">The chip stopped being <em>the product</em>.</h1>
     <p class="lede">A buyer's-eye survey of what is actually for sale in AI infrastructure as of September 2026: accelerators, rack systems, the two prices each of them carries, the kilowatts they need, and the memory and storage products that now set the cost of all of it. Every figure carries its source and its date, because most of them will be wrong within two quarters.</p>
     <a class="cta" href="#reading">Read on</a>
@@ -468,7 +468,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
 
     <div class="fieldnote">
       <div class="kicker">Tag key</div>
-      <p>Status tags hold one meaning throughout. <span class="tag green">SHIPPING</span> generally available and installable now. <span class="tag blue">H2 2026</span> in production, customer shipments during this half. <span class="tag orange">LIMITED</span> single provider, allocation only, or thin market. <span class="tag purple">VENDOR CLAIM</span> figure comes from the manufacturer and has not been independently reproduced. <span class="tag red">NO PUBLIC PRICE</span> nothing you can quote without a sales conversation.</p>
+      <p>Status tags hold one meaning throughout. <span class="tag green">SHIPPING</span> generally available and installable now. <span class="tag blue">H2 2026</span> in production or sampling, customer shipments ahead. <span class="tag orange">LIMITED</span> single provider, allocation only, restricted to one cloud, or thin market. <span class="tag purple">VENDOR CLAIM</span> figure comes from the manufacturer and has not been independently reproduced. <span class="tag red">NO PUBLIC PRICE</span> red marks anything you cannot simply buy: no published price, withdrawn from the roadmap, or discontinued.</p>
     </div>
   </div>
 </section>
@@ -542,31 +542,116 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
       <div class="table-scroll">
         <table>
           <thead><tr>
-            <th>System</th><th>Accelerators</th><th>Pooled fast memory</th><th>Dense FP4</th><th>Rack power</th><th>Status</th>
+            <th>System</th><th>Accelerators</th><th>Pooled fast memory</th><th>Dense FP4</th><th>Rack power</th><th>Announced &middot; shipped</th><th>Status</th>
           </tr></thead>
           <tbody>
-            <tr><td><strong>NVIDIA GB200 NVL72</strong></td><td>72 B200 + 36 Grace</td><td>13.4 TB HBM3e</td><td>720 PFLOPS <span class="tag">1,440 sparse</span></td><td>~120&ndash;125 kW</td><td><span class="tag green">SHIPPING</span></td></tr>
-            <tr><td><strong>NVIDIA GB300 NVL72</strong></td><td>72 B300 + 36 Grace</td><td>20.7 TB HBM3e</td><td>1,080 PFLOPS <span class="tag">1,440 sparse</span></td><td>~120&ndash;142 kW</td><td><span class="tag green">SHIPPING</span> <span class="tag red">NO PUBLIC PRICE</span></td></tr>
-            <tr><td><strong>NVIDIA VR200 NVL72</strong></td><td>72 Rubin + 36 Vera</td><td>20.7 TB HBM4, 1,580 TB/s</td><td>3,600 PFLOPS inference &middot; 2,520 training</td><td>~190&ndash;230 kW</td><td><span class="tag blue">H2 2026</span></td></tr>
-            <tr><td><strong>NVIDIA VR NVL144 CPX</strong></td><td>72 Rubin + 144 Rubin CPX</td><td>100 TB fast memory, 1.7 PB/s</td><td>8,000 PFLOPS <span class="tag purple">VENDOR CLAIM</span></td><td>~370 kW</td><td><span class="tag blue">H2 2026</span></td></tr>
-            <tr><td><strong>AMD Helios</strong></td><td>72 MI455X + EPYC Venice</td><td>31 TB HBM4, 1.67 PB/s</td><td>2,900 PFLOPS &middot; 1,400 FP8</td><td>~140 kW est.</td><td><span class="tag blue">H2 2026</span></td></tr>
-            <tr><td><strong>Google Ironwood superpod</strong></td><td>9,216 TPU v7</td><td>1.77 PB HBM</td><td>no FP4 path &middot; 42.5 EFLOPS FP8</td><td>not published</td><td><span class="tag green">SHIPPING</span> <span class="tag orange">CLOUD ONLY</span></td></tr>
-            <tr><td><strong>AWS Trainium3 UltraServer</strong></td><td>144 Trainium3</td><td>not published</td><td>no FP4 path &middot; 362 PFLOPS FP8</td><td>not published</td><td><span class="tag green">SHIPPING</span> <span class="tag orange">CLOUD ONLY</span></td></tr>
-            <tr><td><strong>Huawei Atlas 950 SuperPoD</strong></td><td>8,192 Ascend 950DT</td><td>not published</td><td>524 EFLOPS FP8 <span class="tag purple">VENDOR CLAIM</span></td><td>160 cabinets, ~1,000 m&sup2;</td><td><span class="tag blue">Q4 2026</span></td></tr>
+            <tr><td><strong>NVIDIA GB200 NVL72</strong></td><td>72 Blackwell (B200) + 36 Grace</td><td>13.4 TB HBM3e</td><td>720 PFLOPS <span class="tag">1,440 sparse</span></td><td>~120&ndash;125 kW</td><td>Mar 2024 &middot; Q4 2024</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>NVIDIA GB300 NVL72</strong></td><td>72 Blackwell Ultra (B300) + 36 Grace</td><td>20.7 TB HBM3e</td><td>1,080 PFLOPS <span class="tag">1,440 sparse</span></td><td>~120&ndash;142 kW</td><td>Mar 2025 &middot; H2 2025</td><td><span class="tag green">SHIPPING</span> <span class="tag red">NO PUBLIC PRICE</span></td></tr>
+            <tr><td><strong>NVIDIA VR200 NVL72</strong></td><td>72 Rubin (R100) + 36 Vera</td><td>20.7 TB HBM4, 1,580 TB/s</td><td>3,600 PFLOPS inference &middot; 2,520 training</td><td>~190&ndash;230 kW</td><td>Mar 2025 &middot; Jun 2026</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>NVIDIA VR NVL144 CPX</strong></td><td>72 Rubin + 144 Rubin CPX</td><td>100 TB fast memory, 1.7 PB/s</td><td>8,000 PFLOPS <span class="tag purple">VENDOR CLAIM</span></td><td>~370 kW</td><td>Sep 2025 &middot; never</td><td><span class="tag red">WITHDRAWN</span></td></tr>
+            <tr><td><strong>NVIDIA Groq 3 LPX</strong></td><td>256 Groq 3 LPU (LP30)</td><td>128 GB SRAM, 40 PB/s &middot; 12 TB DDR5</td><td>315 PFLOPS FP8, no FP4 figure published</td><td>not published</td><td>Mar 2026 &middot; Aug 2026</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>AMD Helios</strong></td><td>72 Instinct MI455X + EPYC Venice</td><td>31 TB HBM4, 1.67 PB/s</td><td>2,900 PFLOPS &middot; 1,400 FP8</td><td>~140 kW est.</td><td>Jun 2025 &middot; Q3 2026</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Google Ironwood superpod</strong></td><td>9,216 Ironwood (TPU v7, TPU7x)</td><td>1.77 PB HBM3e</td><td>no FP4 path &middot; 42.5 EFLOPS FP8</td><td>not published</td><td>Apr 2025 &middot; Nov 2025</td><td><span class="tag green">SHIPPING</span> <span class="tag orange">CLOUD ONLY</span></td></tr>
+            <tr><td><strong>AWS Trainium3 UltraServer</strong></td><td>144 Trainium3</td><td>not published</td><td>no FP4 path &middot; 362 PFLOPS FP8</td><td>not published</td><td>Dec 2025 &middot; 2026</td><td><span class="tag green">SHIPPING</span> <span class="tag orange">CLOUD ONLY</span></td></tr>
+            <tr><td><strong>Huawei Atlas 950 SuperPoD</strong></td><td>8,192 Ascend 950DT</td><td>not published</td><td>524 EFLOPS FP8 <span class="tag purple">VENDOR CLAIM</span></td><td>160 cabinets, ~1,000 m&sup2;</td><td>Sep 2025 &middot; Q4 2026</td><td><span class="tag blue">Q4 2026</span></td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
+    <p class="verstamp">Two dates, because they are different facts. The first is when the system was named publicly, the second is when hardware reached a paying customer. Ironwood was announced at Google Cloud Next in April 2025, reached general availability in November 2025, and was presented again as generally available at Cloud Next in April 2026; the November date is used here. VR200 dates from its roadmap naming at GTC 2025 and the first operational rack, a Dell PowerEdge XE9812 delivered to CoreWeave on 1 June 2026. Helios was previewed in June 2025 and launched as a product on 23 July 2026.</p>
+
+    <div class="warning">
+      <div class="kicker">Correction to v2</div>
+      <p>The Rubin CPX row is no longer a product. NVIDIA announced it at the AI Infra Summit in September 2025, then dropped it from the roadmap and the keynote at GTC in March 2026, and the Groq-derived LPX rack took its place in the inference slot. Trade reporting in May 2026 found no memory or packaging orders placed against it. Supply-chain analyst Ming-Chi Kuo reported in late August 2026 that a redesigned CPX is back on a Q1 2027 schedule with 168 GB of HBM4 instead of 128 GB of GDDR7, in standalone racks rather than mixed into an NVL144. That is single-source supply-chain reporting about an unannounced part, and it should not be planned against. Any 8-exaflop NVL144 CPX figure still in circulation describes a system that was never built.</p>
+    </div>
+
     <p>Read down the memory column rather than the compute column. A GB300 rack pools 20.7 TB of HBM3e in one NVLink domain, which means a quantized trillion-parameter model occupies a small fraction of the cabinet and the rest of it is available for context and concurrency. That pooling is the product. Eight separate servers holding the same total memory are not the same machine, and the gap shows up as tokens per second on long context rather than as a number on a spec sheet.</p>
 
-    <p>AMD's Helios pools more memory than either NVIDIA rack, 31 TB against 20.7, and reaches it over UALink-on-Ethernet rather than NVLink, in a double-wide OCP Open Rack Wide chassis rather than a standard cabinet. AMD's stated position at launch was up to 30 percent more tokens per dollar than Rubin NVL72. That is a vendor claim about an unshipped comparison, and it is the number the next two quarters will actually test.</p>
+    <p>AMD's Helios pools more memory than either NVIDIA rack, 31 TB against 20.7, and reaches it over UALink-on-Ethernet rather than NVLink, in a double-wide OCP Open Rack Wide chassis rather than a standard cabinet. AMD's stated position at launch was up to 30 percent more tokens per dollar than Rubin NVL72. Helios launched on 23 July 2026 and entered full production with first shipments late in the third quarter, so the comparison is no longer hypothetical on either side. It is still a vendor claim, and no independent benchmark of the two racks against a common workload has been published.</p>
 
     <p>The two pod entries at the bottom of the table are a different kind of product. Neither Google nor Amazon sells you a cabinet. You rent capacity inside their fabric, priced by the chip-hour or by the committed contract, and the pod scale is what they are selling rather than the chip.</p>
+
+    <h3 class="sub-h">Who actually sells you the rack</h3>
+
+    <p>None of the eight systems above is manufactured by the company whose logo goes on the purchase order in most deals. NVIDIA designs the rack and sells the silicon; Foxconn, Quanta, Wistron, Wiwynn, Compal, Pegatron and Inventec build it; Dell, HPE, Lenovo and Supermicro sell it with a support contract; and the hyperscalers buy direct. Roughly 150 supply-chain firms touch a Vera Rubin cabinet. When comparing quotes, the thing that differs between OEMs is the service wrap, the integration testing and the delivery slot, not the machine.</p>
+
+    <p>Which is the context for the Cisco question, because Cisco is not on that list and its absence is a strategy rather than an oversight. Cisco does not build a rack-scale AI system. Its own compute line stops at the PCIe server: the UCS C845A M8, built to NVIDIA's MGX modular reference design, takes two to eight PCIe accelerators including RTX PRO 6000 Blackwell, H200 NVL, L40S and AMD Instinct MI350P, and it is sold inside pre-sized bundles called AI PODs. That is an enterprise inference box. It is not a competitor to NVL72 and Cisco does not position it as one.</p>
+
+    <p>What Cisco sells into the rack-scale market is the network and the validation. The Secure AI Factory with NVIDIA is a reference architecture in which Cisco supplies the fabric, the security and the operating model, and somebody else supplies the cabinet. Front-end, storage and data-center-interconnect traffic runs on Cisco N9300 switches built around Cisco's own Silicon One; the back-end accelerator fabric runs on Cisco N9100 switches built around NVIDIA Spectrum-X silicon, which is Cisco reselling a competitor's ASIC in a Cisco box under NX-OS or SONiC (open source). In August 2026 Cisco closed the hole in the middle by adding Supermicro as the compute partner, with liquid- and air-cooled HGX and MGX systems, Vera Rubin NVL72 and HGX Rubin NVL8, and rack designs above 200 kW, orderable through Cisco's channel from October 2026.</p>
+
+    <p>The one place Cisco is selling silicon nobody else has is between buildings. The Silicon One P200 and the 8223 router that carries it are a 51.2 Tbps fixed-form deep-buffer Ethernet router aimed at what Cisco calls scale-across: tying AI clusters in separate data centers into one training job when no single site has the power to hold the whole run. The relevant specification is not the bandwidth, it is the buffer. A dropped packet on a months-long training job forces a checkpoint rollback, and the P200's shared packet buffer exists to absorb the synchronized bursts that AI collectives produce. Cisco announced it in October 2025 and shipped to initial hyperscalers on SONiC first, with IOS XR and NX-OS following.</p>
+
+    <div class="fieldnote">
+      <div class="kicker">How to read Cisco in this market</div>
+      <p>Cisco's position is that the cabinet is becoming a commodity assembled by contract manufacturers, and the durable margin sits in the fabric, the security posture and the operating model an enterprise network team already knows. Whether that is right is the open question. It is the same bet Cisco made against server vendors with UCS in 2009, and it worked that time. What is different now is that the highest-value part of the fabric, the accelerator back-end, is silicon Cisco buys from NVIDIA rather than silicon Cisco makes.</p>
+    </div>
 
     <div class="warning">
       <div class="kicker">On rack prices</div>
       <p>No vendor publishes a list price for any system in this table. Reported figures in circulation are roughly $5M to $7M for VR200 NVL72, around $6M for GB300 NVL72, and around $5.25M for a fully configured Helios rack. Each traces to trade press or analyst estimate, not to a price list, and one widely repeated $8.8M figure for Rubin actually belongs to the 2028 Rubin Ultra. Treat all four as order-of-magnitude only. A Morgan Stanley bill-of-materials estimate for Rubin near $7.8M has also circulated, which is a component cost and cannot be compared against a sale price.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fabric" data-nav="Fabric">
+  <div class="wrap">
+    <div class="kicker">The other silicon in the cabinet</div>
+    <h2>Seventy-two accelerators, and about a dozen other chip types.</h2>
+    <p class="sub">An accelerator count is the least interesting number on a rack datasheet. A modern cabinet contains switch silicon, network interface silicon, a data processing unit, retimers, power conversion stages and a management controller, and the vendor shares in each of those are a different competitive picture from the accelerator market above.</p>
+
+    <p>NVIDIA's own framing makes the point. It describes Vera Rubin as seven chips co-designed together, not one chip in a box: the Rubin GPU, the Vera CPU, the NVLink 6 switch, the ConnectX-9 SuperNIC, the BlueField-4 DPU, the Spectrum-6 Ethernet switch with co-packaged optics, and, since March 2026, the Groq 3 LPU. Six of those seven are things NVIDIA would once have bought from someone else.</p>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Part</th><th>Vendor</th><th>What it is</th><th>Where it sits</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>NVLink 6 switch</strong></td><td>NVIDIA</td><td>28.8 TB/s per switch tray, 3.6 TB/s bidirectional per accelerator, 14.4 TFLOPS of in-network FP8 reduction</td><td>Nine switch trays inside VR200 NVL72</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>ConnectX-9 SuperNIC</strong></td><td>NVIDIA</td><td>800 Gb/s per port, 1.6 Tb/s per accelerator, 48 lanes of PCIe Gen6 switching, 4x200G PAM4</td><td>Four per compute tray</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>BlueField-4 DPU</strong></td><td>NVIDIA</td><td>64-core CPU with ConnectX-9 in package; storage, security and tenancy offload, plus KV-cache staging to attached flash</td><td>Compute tray, and the storage racks beside it</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Spectrum-6 / Spectrum-X Photonics</strong></td><td>NVIDIA</td><td>102.4 Tb/s Ethernet with co-packaged optics rather than pluggable transceivers</td><td>Scale-out, rack to rack</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Quantum-X800</strong></td><td>NVIDIA</td><td>800 Gb/s InfiniBand, the alternative to Spectrum-X at the same per-accelerator bandwidth</td><td>Scale-out, rack to rack</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Tomahawk 6</strong></td><td>Broadcom</td><td>102.4 Tb/s Ethernet switch, 512x200GbE or 128x800GbE; Davisson variant adds co-packaged optics</td><td>Merchant alternative to Spectrum, scale-up and scale-out</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Tomahawk Ultra</strong></td><td>Broadcom</td><td>Same class of bandwidth tuned for 250 ns latency, aimed squarely at scale-up inside the rack</td><td>Ethernet in place of NVLink</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Jericho 4</strong></td><td>Broadcom</td><td>Deep-buffer routing silicon for lossless fabrics past a million accelerators</td><td>Scale-across, between buildings</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Thor Ultra NIC, Agera retimers, Sian DSP</strong></td><td>Broadcom</td><td>400G RDMA network interface, 200G-per-lane signal retiming, optical DSP</td><td>Everywhere a signal has to survive a long trace</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Silicon One P200 / G200</strong></td><td>Cisco</td><td>51.2 Tbps deep-buffer router and switch silicon, converged routing and switching on one die</td><td>Front-end fabric and data center interconnect</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Scorpio P-Series / X-Series</strong></td><td>Astera Labs</td><td>PCIe Gen6 switching: P for fan-out to NICs and storage, X for memory-semantic scale-up traffic</td><td>Head node and scale-up fabric</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Aries / Taurus retimers</strong></td><td>Astera Labs</td><td>PCIe and Ethernet signal conditioning between accelerator, CPU, NIC and SSD</td><td>Every tray</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>Pensando Pollara 400</strong></td><td>AMD</td><td>400G Ultra Ethernet network interface, AMD's answer to ConnectX inside Helios</td><td>Helios scale-out</td><td><span class="tag green">SHIPPING</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>The competitive question in this table is whether Ethernet takes the scale-up job away from NVLink. Broadcom's argument is that Tomahawk Ultra and the Ultra Ethernet Consortium specification give a buyer rack-scale latency without a proprietary fabric, and AMD's Helios is the first large system to bet on it, using UALink over Ethernet and Meta's Open Rack Wide chassis, both submitted to the Open Compute Project as open standards. NVIDIA's counter is co-design: NVLink 6, ConnectX-9 and Spectrum-6 were taped out against each other, and the performance that buys is not visible in a per-chip comparison. Neither claim has been settled by an independent measurement, and the first half of 2027 is when it will be.</p>
+
+    <h3 class="sub-h">The power chain is now a silicon market too</h3>
+
+    <p>Below roughly 350 kW a cabinet can be fed at 54 volts DC. Above it the copper stops working: NVIDIA's own figure is up to 200 kg of busbar for a one-megawatt rack, and about 200,000 kg of copper for a gigawatt site. The industry response is 800 volt DC distribution, converting once from medium-voltage AC at the perimeter and once again at the tray, and it has produced a supplier list that did not exist three years ago.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <span class="tag green">SHIPPING</span>
+        <h4>Conversion silicon</h4>
+        <p>Infineon, Texas Instruments, STMicroelectronics, Navitas, Monolithic Power Systems, onsemi, ROHM, Renesas, Analog Devices, Innoscience and Power Integrations are all named in NVIDIA's 800 VDC partner list. The technology under it is gallium nitride and silicon carbide, and the demand pull is coming from EV charging volumes rather than from data centers.</p>
+      </div>
+      <div class="card">
+        <span class="tag blue">H2 2026</span>
+        <h4>Rack and shelf</h4>
+        <p>Delta showed a 660 kW in-row 800 VDC rack with 480 kW of embedded battery backup at GTC 2026. LiteOn showed an 800 VDC rack with a 110 kW power shelf on the MGX design. Vertiv's PowerDirect 5000 sidecar covers 400 to 900 kW with the portfolio commercial in the second half of 2026 and volume in 2027.</p>
+      </div>
+      <div class="card">
+        <span class="tag blue">H2 2026</span>
+        <h4>Facility conversion</h4>
+        <p>Eaton has a 2 MW, 15 kV-class medium-voltage solid-state transformer rated above 97 percent at 800 VDC output, plus the Beam Rubin DSX platform co-designed with NVIDIA. Schneider Electric's Galaxy VXL runs 400 to 1,250 kW. Delta has its own solid-state transformer for medium-voltage AC to 800 VDC.</p>
+      </div>
+    </div>
+
+    <div class="fieldnote">
+      <div class="kicker">The question to ask a vendor</div>
+      <p>Not whether they support 800 VDC. Ask what voltage the busbar inside the rack actually is, whether the conversion happens in a sidecar or at the building perimeter, and whether the number quoted belongs to an orderable part number or to a photograph from a trade show. Mass deployment of 800 VDC is tied to the Rubin Ultra (Kyber) cabinet in 2027. The hall a buyer can contract for today is still a 50-volt, 120 to 140 kW liquid-cooled cabinet on a 415 or 480 volt AC feeder.</p>
     </div>
   </div>
 </section>
@@ -652,6 +737,23 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
 
     <p>Efficiency is genuinely improving at the same time, which is the part the alarming curve hides. NVIDIA states that VR200 NVL72 carries nearly twice the transistors of GB200 NVL72 while delivering ten times the performance per watt. That is a vendor claim and the multiple is doing promotional work, but the direction is real: every generation has produced more tokens per joule even as it produced far more joules per cabinet. The problem is not efficiency. It is that the efficiency gain is spent immediately on density, and density is what the building has to absorb.</p>
 
+    <h3 class="sub-h">The second power problem, which is quality rather than quantity</h3>
+
+    <p>Megawatts are the visible constraint. The one that has moved regulators is the shape of the load. A training job puts thousands of accelerators into lockstep, and the power they draw follows the job: near-idle during a collective, full draw during compute, repeated at intervals measured in milliseconds and synchronized across an entire hall. A gigawatt campus behaves less like a factory and more like one very large switching supply.</p>
+
+    <p>The consequences are now documented rather than theoretical. A 14.7 Hz oscillation in Dominion Energy's territory was traced to a single data center. ERCOT has reported repeated events in which large computing loads tripped offline during transmission faults because they lacked ride-through capability, which converts one fault into a sudden loss of load. NERC issued a Level 2 industry recommendation on large-load interconnection in September 2025 and escalated to a Level 3 Essential Action alert in May 2026, citing customer-initiated load reductions and oscillations that occur in seconds, with a response deadline of 3 August 2026 and seven required actions. ERCOT's NOGRR282 puts ride-through obligations on large electronic loads directly.</p>
+
+    <div class="grid g4">
+      <div class="stat"><span class="n">1,000 MW+</span><span class="t">Size of single-event load drops cited in NERC's Level 3 alert</span></div>
+      <div class="stat"><span class="n">14.7 Hz</span><span class="t">Oscillation in Dominion territory traced to one data center, published 2025</span></div>
+      <div class="stat"><span class="n">0.5 Hz/s</span><span class="t">Rate-of-change-of-frequency threshold in NERC guidance that grid-forming storage is sized to protect</span></div>
+      <div class="stat"><span class="n">40&ndash;60%</span><span class="t">Reduction in peak-to-valley excursion at the interconnection point from correctly sized grid-forming storage, per published field measurements</span></div>
+    </div>
+
+    <p>Three fixes are in circulation and they are not alternatives so much as a stack. Software smoothing keeps the accelerators from going fully idle between collectives, which costs a little throughput and flattens the waveform. Grid-interactive uninterruptible supplies use inverter capacity that traditional units leave idle, so the battery does frequency support rather than only ride-through. And a co-located battery installation running in grid-forming mode absorbs the transient before it reaches the meter: one published model puts a 50 MW, 100 MWh installation as enough to hold the grid-side ramp under 150 MW/s on a campus where the raw swing is far larger. The harmonic content that high-density converters inject is a separate problem with its own compensation equipment.</p>
+
+    <p>For a buyer this collapses into one procurement question that did not exist two years ago. A facility can have the megawatts contracted and still be unable to take the load, because the utility will not energize a large electronic load that cannot demonstrate ride-through and cannot show what its oscillation signature looks like. That is now part of the interconnection study, and it is a reason a site slips.</p>
+
     <div class="panel invert">
       <div class="kicker">The point</div>
       <h3>If you cannot put 130 kW into one cabinet and take the heat out in liquid, the 2026 product line is not available to you at any price.</h3>
@@ -659,6 +761,122 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
     </div>
   </div>
 </section>
+<section class="section" id="cooling" data-nav="Cooling">
+  <div class="wrap">
+    <div class="kicker">Heat rejection</div>
+    <h2>The loop is a separate purchase with its own supplier market.</h2>
+    <p class="sub">Liquid cooling stopped being an option during the Blackwell generation and became a precondition during this one. The GB200 and GB300 cabinets are roughly 85 percent liquid and 15 percent air. Vera Rubin NVL72 is fully liquid on compute and switch trays both. That turns a line item into a supplier decision with a dozen credible vendors and two distinct technologies underneath.</p>
+
+    <p>Single-phase direct-to-chip is the winner and it is worth being clear about why, because the reason is regulatory rather than thermal. Cold plates on the accelerators, a closed technology loop of roughly three parts water to one part glycol, a coolant distribution unit isolating that loop from facility water. No exotic chemistry. Schneider Electric's 2026 read puts single-phase direct-to-chip at about 55 percent of the liquid cooling market and rising. Immersion, which looked like the future in 2022, is a niche, and two-phase immersion is a niche inside a niche for reasons covered below.</p>
+
+    <h3 class="sub-h">Who sells the loop</h3>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Company</th><th>Products</th><th>Position</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Vertiv</strong></td><td>CoolChip CDU 2300 kW liquid-to-liquid, CoolChip CDU 350 kW liquid-to-air, CDU 70 / 100 / 600; PowerDirect 5000 power sidecar</td><td>Largest single share of data center liquid cooling, put at roughly 11 percent for 2025 by one market estimate. Sells power and thermal together, which is increasingly how the buy happens.</td></tr>
+            <tr><td><strong>Schneider Electric (Motivair)</strong></td><td>Motivair floor-standing and in-rack CDUs, utility-corridor models announced December 2025, further models January 2026; Galaxy VXL UPS alongside</td><td>Bought Motivair to acquire cold plate and CDU engineering rather than build it. Same power-plus-thermal bundle as Vertiv.</td></tr>
+            <tr><td><strong>CoolIT Systems</strong></td><td>CHx2000 2 MW row-based CDU, CHx series to 1,500 kW, OMNI microchannel cold plates, AHx180 liquid-to-air</td><td>The specialist that got bought. Ecolab closed its acquisition in July 2026 at about $4.75 billion, which is the clearest single price signal on what this market is now worth.</td></tr>
+            <tr><td><strong>Boyd</strong></td><td>ROL4000 2 MW CDU, 2.3 MW CDU, cold plates and manifolds</td><td>Vertically integrating through acquisition of the Durbin Group and more than doubling liquid cooling capacity in Mexico during March 2026.</td></tr>
+            <tr><td><strong>Delta Electronics</strong></td><td>In-rack liquid-to-liquid CDUs to 200 kW per rack, plus the 800 VDC power rack</td><td>Component depth on both sides of the cabinet, and one of the few vendors selling conversion silicon and coolant distribution to the same customer.</td></tr>
+            <tr><td><strong>nVent, Rittal, Stulz, Alfa Laval, Munters</strong></td><td>CDUs, rear-door heat exchangers, heat exchange and enclosure engineering</td><td>Established thermal and enclosure businesses extending existing product lines rather than entering new.</td></tr>
+            <tr><td><strong>Johnson Controls, Carrier, Trane</strong></td><td>Silent-Aire liquid cooling portfolio and CDU platforms; QuantumLeap CDU family launched November 2025</td><td>The building HVAC incumbents arriving late with scale and channel rather than novel technology.</td></tr>
+            <tr><td><strong>LiquidStack, Submer, GRC, Iceotope, Asperitas</strong></td><td>Single-phase and two-phase immersion tanks and chassis</td><td>Immersion specialists. Single-phase held about 81 percent of the immersion market in 2024 and that share has grown since.</td></tr>
+            <tr><td><strong>ZutaCore, Accelsius, JetCool</strong></td><td>Two-phase direct-on-chip, including ZutaCore HyperCool</td><td>The technically most efficient approach and the one most exposed to the coolant supply problem below.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="sub-h">And who sells the fluid</h3>
+
+    <p>The coolant market is tiny in revenue and large in risk. One projection puts direct-to-chip coolants at $180 million in 2026. The reason it matters out of proportion to its size is that a coolant decision is a twenty-year liability decision, and one supplier already demonstrated what happens when that goes wrong.</p>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Fluid</th><th>Supplier</th><th>Used for</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Water and glycol, roughly 75/25</strong></td><td>Commodity</td><td>Single-phase direct-to-chip, the dominant method</td><td><span class="tag green">SHIPPING</span> No PFAS content</td></tr>
+            <tr><td><strong>Castrol ON DC15, DC20</strong></td><td>Castrol</td><td>Hydrocarbon dielectric for single-phase immersion, co-engineered with Submer</td><td><span class="tag green">SHIPPING</span> No PFAS content</td></tr>
+            <tr><td><strong>Gas-to-liquid immersion fluid</strong></td><td>Shell</td><td>Single-phase immersion, developed with Asperitas</td><td><span class="tag green">SHIPPING</span> No PFAS content</td></tr>
+            <tr><td><strong>Opteon 2P50</strong></td><td>Chemours</td><td>Hydrofluoroolefin dielectric for two-phase immersion</td><td><span class="tag orange">LIMITED</span> Qualified by Samsung and 2CRSi; under $1M of two-phase fluid sales in Chemours' second quarter of 2026</td></tr>
+            <tr><td><strong>Opteon SF33</strong></td><td>Chemours</td><td>Interim two-phase fluid, the stopgap ZutaCore moved to</td><td><span class="tag orange">LIMITED</span> Fluorinated</td></tr>
+            <tr><td><strong>Novec 7100, Novec 649, Fluorinert FC-72</strong></td><td>3M</td><td>The fluids two-phase immersion was built on</td><td><span class="tag red">DISCONTINUED</span> Last orders 31 March 2025</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>3M announced in December 2022 that it would stop manufacturing all PFAS chemistry by the end of 2025, against a backdrop of a $12.5 billion settlement with more than eleven thousand United States public water systems. That single decision removed the fluid supply under two-phase immersion. ZutaCore moved to a Chemours interim product and committed to a PFAS-free two-phase fluid. LiquidStack said publicly that it is not a chemical company and has no position on PFAS. Single-phase vendors were almost untouched, because hydrocarbon dielectrics and water-glycol were never in the category.</p>
+
+    <div class="warning">
+      <div class="kicker">The live risk on this line</div>
+      <p>There is no PFAS ban on immersion cooling today, and the replacement fluorinated fluids have real performance. Chemours reports that Opteon 2P50 can cut cooling energy by more than 90 percent and nearly eliminate water use, which is a genuine result rather than a marketing number. But a September 2026 ChemSec analysis found nearly all major PFAS producers planning capacity expansions tied specifically to AI data center demand, no large commercial deployment of the newest fluorinated cooling fluids has been publicly confirmed as of mid-2026, and Opteon 2P50 is still awaiting federal approval in the United States. A buyer choosing two-phase today is taking regulatory risk on a twenty-year asset, in a category where the last supplier exit came with six months of notice.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sites" data-nav="Sites">
+  <div class="wrap">
+    <div class="kicker">What kind of building, and whose</div>
+    <h2>Tier ratings do not describe any of the things that now matter.</h2>
+    <p class="sub">The Uptime Institute tier scale measures redundancy in the power and cooling path. It says nothing about kilowatts per cabinet, nothing about whether a liquid loop exists, and nothing about whether the facility can ride through a voltage sag without tripping. A Tier IV hall commissioned in 2019 at a nine-kilowatt average is a fully redundant building that cannot host one rack from the table above.</p>
+
+    <p>The specification that has replaced it is unofficial and has five parts. Density: 130 kW to a single cabinet today, 200 kW-plus for Vera Rubin builds, with a credible path to 600 kW for the 2027 generation. A liquid loop: facility water to a coolant distribution unit, isolated technology loop, cold plates on compute and switch trays both. Electrical service: medium voltage to the hall, with a path to 800 volt DC distribution rather than a retrofit story. Ride-through: the ability to stay connected through a fault, demonstrated to the utility during the interconnection study rather than asserted. And generation or storage on site, because the interconnection queue is the long pole almost everywhere.</p>
+
+    <h3 class="sub-h">Three categories a buyer can actually contract for</h3>
+
+    <div class="grid g3">
+      <div class="card">
+        <span class="tag orange">NOT FOR SALE</span>
+        <h4>Hyperscaler self-build</h4>
+        <p>Microsoft, Google, Amazon and Meta building for their own use, plus the purpose-built campuses financed as joint ventures. You cannot buy space in these. You can buy the compute inside them as cloud capacity, which is the only access route and part of why the rented market is the legible one.</p>
+      </div>
+      <div class="card">
+        <span class="tag green">AVAILABLE</span>
+        <h4>Neocloud</h4>
+        <p>CoreWeave, Lambda, Nebius, Crusoe, Together AI, Nscale. Purpose-built for accelerators, sold as capacity rather than space, and the group designing for 800 VDC earliest. CoreWeave, Lambda, Nebius, Oracle Cloud Infrastructure and Together AI are all named as designing facilities for it.</p>
+      </div>
+      <div class="card">
+        <span class="tag green">AVAILABLE</span>
+        <h4>AI colocation</h4>
+        <p>Equinix, Digital Realty, QTS, Vantage, CyrusOne, Aligned, Compass, STACK, Applied Digital, DataBank. You bring the hardware; they bring power, loop and interconnection. Aligned's DeltaFlow is specified to 300 kW per rack. Anything above roughly 30 kW is a pre-approval conversation rather than a catalogue item, and lead times on power run 18 to 36 months in the constrained metros.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-h">The campuses being built, and how they are powered</h3>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Campus</th><th>Operator</th><th>Location</th><th>Scale</th><th>Power approach</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Colossus 2</strong></td><td>xAI</td><td>Memphis area, Tennessee and Southaven, Mississippi</td><td>~946 MW mid-2026, stated target 2 GW</td><td>Warehouse retrofit plus on-site turbines</td></tr>
+            <tr><td><strong>Project Rainier</strong></td><td>Amazon Web Services, for Anthropic</td><td>New Carlisle, Indiana</td><td>~910 MW mid-2026, ~1,200 acres, scaling toward a stated 2.25 GW</td><td>Grid, with Trainium rather than GPUs inside</td></tr>
+            <tr><td><strong>Fairwater</strong></td><td>Microsoft</td><td>Atlanta, Georgia and Mount Pleasant, Wisconsin</td><td>Multi-hundred MW per site, ramping through 2026 and 2027</td><td>Grid</td></tr>
+            <tr><td><strong>Prometheus</strong></td><td>Meta</td><td>New Albany, Ohio</td><td>Gigawatt-class, first capacity 2026</td><td>Rapid-deployment modular structures, grid</td></tr>
+            <tr><td><strong>Hyperion</strong></td><td>Meta</td><td>Richland Parish, Louisiana</td><td>Up to 5 GW, ramping from 2028</td><td>New Entergy gas generation approved by Louisiana regulators; financed through a joint venture in which Blue Owl holds the majority</td></tr>
+            <tr><td><strong>Stargate Abilene</strong></td><td>OpenAI, Oracle, SoftBank, Crusoe, on Lancium land</td><td>Abilene, Texas</td><td>~1.2 GW, ~1,100 acres, eight buildings, construction into early 2027</td><td>Largely self-provided, with a simple-cycle gas plant filed as off-grid backup to avoid the interconnection queue</td></tr>
+            <tr><td><strong>Stargate Michigan</strong></td><td>OpenAI, Oracle, Related Digital</td><td>Saline Township, Michigan</td><td>~1.4 GW target</td><td>Grid-focused, with reported local opposition</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="verstamp">Power figures for Colossus 2 and Project Rainier are Epoch AI satellite-derived estimates from mid-2026 and continue to move. Everything else is developer statement or trade reporting. Nobody in this table publishes metered draw, and announced capacity and energized capacity differ by years.</p>
+
+    <p>Two patterns are worth extracting from that table. The first is that gas generation on site has become the default answer to the interconnection queue rather than a backup plan, at Abilene, at Colossus and at Hyperion, which pushes an electricity-sector problem into an air-permitting problem and a local-politics problem. The second is that the financing has separated from the operator: Hyperion is held in a vehicle where an asset manager owns most of the equity and the bonds were placed with institutional buyers. A campus is now a structured credit product with a tenant, and that changes who bears the risk if the compute inside it is worth less in 2030 than the model assumed.</p>
+
+    <div class="panel">
+      <h3 class="sub-h">The building is the long-lead item, and it is now a regulatory artifact as much as an engineering one</h3>
+      <p>Silicon allocation is measured in quarters. A liquid-cooled hall with medium-voltage service, demonstrated ride-through and a signed interconnection agreement is measured in years, and in several metros the power date is 18 to 36 months out regardless of budget. Any plan that treats the facility as something to arrange after the hardware decision has the sequence backwards.</p>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="memory" data-nav="Memory">
   <div class="wrap">
     <div class="kicker">Memory</div>
@@ -685,6 +903,30 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
         <p>Began volume shipment of HBM4 36GB 12-high in the first calendar quarter of 2026. Has spent the cycle taking allocation share from Samsung on some designs, which was the competitive surprise of the generation.</p>
       </div>
     </div>
+
+    <h3 class="sub-h">What each company actually ships, by part</h3>
+
+    <p>The three suppliers are usually discussed as one bloc because they hold one market between them. They are not selling one product. There are now four distinct memory categories in a 2026 cabinet, and a fifth that exists because one of them was removed.</p>
+
+    <div class="tablewrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Part</th><th>Who makes it</th><th>What it is</th><th>Where it goes</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>HBM4, 12-high, 36 GB per stack</strong></td><td>SK hynix, Samsung, Micron</td><td>2,048-bit interface, above 11 Gbps per pin after NVIDIA raised the requirement mid-development</td><td>Eight stacks per Rubin package for 288 GB; 432 GB on Instinct MI455X</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>HBM4E</strong></td><td>SK hynix 12-stack samples June 2026; Samsung 12-layer samples May 2026</td><td>The next step, not yet in a shipping system</td><td>2027 platforms</td><td><span class="tag blue">SAMPLING</span></td></tr>
+            <tr><td><strong>SOCAMM2, LPDDR5X</strong></td><td>SK hynix 192 GB on a 1cnm node, mass production April 2026; Micron 256 GB on 1-gamma; Samsung 192 GB</td><td>14 by 90 mm compression-attached module, about 30 percent of an RDIMM footprint, more than twice RDIMM bandwidth at 55 to 75 percent better power efficiency depending on whose claim you take</td><td>Host memory beside the Vera CPU; 54 TB of it per VR200 NVL72 rack against 20.7 TB of HBM4</td><td><span class="tag green">SHIPPING</span></td></tr>
+            <tr><td><strong>DDR5 RDIMM and MRDIMM</strong></td><td>All three</td><td>Conventional server memory, the category that repriced</td><td>Every x86 host, and 12 TB per Groq 3 LPX rack</td><td><span class="tag green">SHIPPING</span> <span class="tag orange">ALLOCATED</span></td></tr>
+            <tr><td><strong>GDDR7</strong></td><td>All three</td><td>Was to carry 128 GB per Rubin CPX, on the argument that prefill is compute-bound and does not need HBM bandwidth</td><td>Nowhere, for now</td><td><span class="tag red">NO LONGER IN A RACK PRODUCT</span></td></tr>
+            <tr><td><strong>On-die SRAM</strong></td><td>NVIDIA, fabricated by Samsung on a 4 nm node</td><td>About 512 MB per Groq 3 LPU (LP30) die at 150 TB/s, with no HBM at all</td><td>128 GB and 40 PB/s aggregate per 256-chip LPX rack</td><td><span class="tag green">SHIPPING</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>The SOCAMM2 row is the one that gets overlooked, and it is a larger tonnage story than HBM. A Vera Rubin cabinet carries roughly two and a half times more low-power DRAM than high-bandwidth memory by capacity. That demand is being met with LPDDR5X, which is mobile memory, which means AI racks and phones are now bidding for the same wafers on the same nodes. The module is also new enough to have a manufacturing problem: bolt-compression assembly makes it prone to warpage, and Samsung reportedly dropped its soldering temperature from above 260&deg;C to below 150&deg;C to control thermal expansion mismatch.</p>
+
+    <p>The GDDR7 row is the clearest illustration of how fast this market reorganizes. A memory type was designed into a named rack product, sampled, discussed for two quarters, and then removed from the roadmap when NVIDIA bought a different answer to the same problem for $20 billion. Memory suppliers plan capacity against roadmaps like that one.</p>
 
     <p>Capacity per accelerator is the number that follows from all of this. A Rubin package carries eight HBM4 stacks for 288 GB. MI455X carries 432 GB. Independent estimates for a 36GB 12-high HBM4 stack run near $550, which would put roughly $4,400 of memory inside a single Rubin package. That last figure is arithmetic on a third-party estimate rather than a contract price, and it should be treated as an order of magnitude and nothing finer.</p>
 
@@ -765,6 +1007,14 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
         <p>H100 costs less now than at any point in its life and its toolchain is the most mature thing in the industry. For fine-tuning, development and inference that fits in 80 GB, it remains the default rather than the compromise.</p>
       </div>
       <div class="card">
+        <h4>Choose the coolant before the cooler</h4>
+        <p>A cold plate can be replaced. A fluid decision is a twenty-year liability on an asset with a fifteen-year life, and the last supplier exit from this category came with about six months of notice. Water and glycol or a hydrocarbon dielectric carries no regulatory tail. A fluorinated two-phase fluid buys real efficiency and takes on the tail.</p>
+      </div>
+      <div class="card">
+        <h4>Ask the utility question before the vendor question</h4>
+        <p>Contracted megawatts are not the same as an energized hall. Ride-through capability, oscillation behavior and the interconnection study are now on the critical path, and in constrained metros the power date runs 18 to 36 months out whatever the budget. Find out what the utility requires before choosing what to put in the cabinet.</p>
+      </div>
+      <div class="card">
         <h4>Put the memory line in the model</h4>
         <p>DRAM and NAND contract prices moved enough in 2026 to change the gross margin guidance of the company selling the accelerators. Any hardware budget written without a memory price sensitivity is missing its largest live variable.</p>
       </div>
@@ -790,6 +1040,8 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
 
     <p>Specifications come from manufacturer product pages and technical materials wherever one exists: NVIDIA's developer and investor publications, AMD's Instinct and Helios product pages, Google Cloud's Ironwood announcements, AWS re:Invent materials, and Huawei's own keynote roadmap. Memory and storage market figures come from TrendForce press releases, dated individually in the text. NVIDIA financial figures come from the Form 8-K filed 26 August 2026 for the quarter ended 26 July 2026. Rental rates are public on-demand rates and price-tracker medians observed in the first ten days of September 2026, across GetDeploying, GPUPerHour, Silicon Data, Thunder Compute and provider pricing pages. Where a part is listed by fewer than five providers, the range is given in full rather than reduced to a median, because a median over four listings is not one.</p>
 
+    <p>The material added in v3 rests on a mix of primary and secondary sources, and the mix is worse than the accelerator sections above. Cisco product positioning comes from Cisco's own newsroom, data sheets and solution collateral, and from the August 2026 Supermicro announcement. Rack silicon comes from NVIDIA developer and product pages, Broadcom press releases and product pages, and Cisco blog and newsroom posts. Cooling vendor products come from vendor announcements; the market-share figures are single-analyst estimates, they disagree with each other by several points, and they should be read as ordering rather than as measurement. Coolant chemistry comes from Chemours and 3M statements and from Chemours' own quarterly filing. Grid material comes from NERC alerts and guidelines, ERCOT rule documents and the peer-reviewed and preprint literature on data center load dynamics. Campus power figures are the weakest numbers in the document: Colossus 2 and Project Rainier are satellite-derived estimates published by Epoch AI, and the rest are developer statements or trade reporting rather than metered draw.</p>
+
     <p>Everything computed rather than quoted is marked as such: the dollars per PFLOP-hour and dollars per TB-hour columns, and the per-package HBM cost estimate. The derivations are in the accordion in the price section.</p>
 
     <p>Three things here will age fastest. Rental rates move weekly and the spread between providers is wider than any generational difference. Memory contract prices are being reset every quarter. Ship dates for anything tagged H2 2026 are vendor statements about the future, and the history of this market is that allocation queues run longer than announcements suggest.</p>
@@ -805,7 +1057,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding:38px 0 60px;}
 
 <footer>
   <div class="wrap">
-    <p class="verstamp">The Compute Market &mdash; v2.0 &middot; build 2026-09-11T07:10-04:00 &middot; supersedes v1.0 (build 2026-09-10T11:33-04:00), which understated MI455X memory bandwidth and read a single MI355X quote as a market rate. Changes in v2: MI455X bandwidth corrected to AMD's published 23.3 TB/s; MI300X added to the silicon and price tables; H200 added to the price table; MI355X repriced across its full four-provider range; Helios rack power, memory bandwidth and interconnect corrected; AMD added to the power ladder; falsifiability conditions added to the decision rules. Covers accelerators, rack systems, rental and purchase pricing, rack power, HBM and conventional memory, and enterprise storage, as of 11 September 2026. Compute figures are dense unless labeled sparse. Derived columns are arithmetic on the stated rates and are marked in the price section.</p>
+    <p class="verstamp">The Compute Market &mdash; v3.0 &middot; build 2026-09-21T05:30-04:00 &middot; supersedes v2.0 (build 2026-09-11T07:10-04:00), which carried the withdrawn Rubin CPX rack as a forthcoming product and had no coverage of rack silicon, cooling, power quality or facilities. Changes in v3: release and shipping dates added to the rack table; Rubin CPX corrected to withdrawn, with the reported 2027 redesign flagged as single-source; NVIDIA Groq 3 LPX added as a shipping rack; Helios and VR200 moved to shipping; a subsection added on who integrates the rack, covering Cisco's networking-and-validation position and the October 2026 Supermicro arrangement; a new Fabric section on NVLink, ConnectX, BlueField, Spectrum, Tomahawk, Jericho, Silicon One, Astera Labs, Pensando and the 800 VDC power silicon; a new Cooling section on liquid cooling vendors and coolant chemistry including the PFAS exit; a power-quality subsection on NERC and ERCOT ride-through and grid-forming storage; a new Sites section on facility requirements, the three buyable categories and the named campuses; a memory breakout by part covering HBM4, HBM4E, SOCAMM2, RDIMM, GDDR7 and SRAM; two decision rules added. Covers accelerators, rack systems, rack silicon, rental and purchase pricing, rack power and power quality, liquid cooling and coolants, facilities, HBM and conventional memory, and enterprise storage, as of 21 September 2026. Compute figures are dense unless labeled sparse. Derived columns are arithmetic on the stated rates and are marked in the price section.</p>
   </div>
 </footer>
 
